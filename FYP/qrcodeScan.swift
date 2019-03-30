@@ -16,12 +16,14 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     @IBOutlet weak var back: UIButton!
-    var printData = ""
+    var printDataName = ""
+    var printDataAmount = ""
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.destination is TouchFaceId{
             let vc = segue.destination as? TouchFaceId
-            vc?.name = printData
+            vc?.name = printDataName
+            vc?.amount = printDataAmount
         }
     }
     
@@ -107,7 +109,8 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 let isSuccessful = try! Ndat.verify(with: NPKeyString, signature: Nsign, digestType: .sha1)
                 
                 let finalResult = result[0].split(separator: ",")
-                printData = String(finalResult[0])
+                printDataName = String(finalResult[0])
+                printDataAmount = String(finalResult[1])
                 
                 if(isSuccessful){
                     //Stop scanning

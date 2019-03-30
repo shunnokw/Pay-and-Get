@@ -14,8 +14,8 @@ class TouchFaceId: UIViewController {
     @IBOutlet weak var showName: UILabel!
     @IBOutlet weak var showAmount: UILabel!
     
-    var name = "name"
-    var amount = 0
+    var name = "Error"
+    var amount = "Error"
 
     @IBAction func payButton(_ sender: UIButton) {
         let myContext = LAContext()
@@ -31,7 +31,7 @@ class TouchFaceId: UIViewController {
                             // User authenticated successfully, take appropriate action
                             print("User authenticated successfully")
                             let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default))
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
                             self.present(alert, animated: true, completion: nil)
                         } else {
                             // User did not authenticate successfully, look at error and take appropriate action
@@ -59,7 +59,7 @@ class TouchFaceId: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         showName.text = name
-        showAmount.text = String(amount)
+        showAmount.text = "$ \(amount)"
     }
     
 
