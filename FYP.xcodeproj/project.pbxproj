@@ -20,6 +20,7 @@
 		0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */; };
 		0FFC3051222ECEE4009BAEE8 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */; };
 		0FFC3053222EDA12009BAEE8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3052222EDA12009BAEE8 /* AlertController.swift */; };
+		57119BAB2252713600262AE5 /* topUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57119BAA2252713600262AE5 /* topUp.swift */; };
 		5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5717FFB4221005F100329B03 /* TouchFaceId.swift */; };
 		572F0B41222BBDF10039395B /* reqestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F0B40222BBDF10039395B /* reqestPage.swift */; };
 		57EB7712220F2901000BD5DF /* qrcodeGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB7711220F2901000BD5DF /* qrcodeGen.swift */; };
@@ -45,6 +46,7 @@
 		0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0FFC3052222EDA12009BAEE8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57119BAA2252713600262AE5 /* topUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topUp.swift; sourceTree = "<group>"; };
 		5717FFB4221005F100329B03 /* TouchFaceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceId.swift; sourceTree = "<group>"; };
 		572F0B40222BBDF10039395B /* reqestPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reqestPage.swift; sourceTree = "<group>"; };
 		57EB7711220F2901000BD5DF /* qrcodeGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeGen.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				57EB7711220F2901000BD5DF /* qrcodeGen.swift */,
 				0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */,
 				0F10739F220DF7D100B29CCB /* location.swift */,
+				57119BAA2252713600262AE5 /* topUp.swift */,
 				0F450A8B21FC2ACD008C2406 /* Assets.xcassets */,
 				0F450A8D21FC2ACD008C2406 /* LaunchScreen.storyboard */,
 				0F450A9021FC2ACD008C2406 /* Info.plist */,
@@ -260,6 +263,7 @@
 				0F5AEC79222E613A0019FE8F /* LoginPage.swift in Sources */,
 				0F1073A2220E0A2800B29CCB /* qrcodeScan.swift in Sources */,
 				57EB7712220F2901000BD5DF /* qrcodeGen.swift in Sources */,
+				57119BAB2252713600262AE5 /* topUp.swift in Sources */,
 				5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */,
 				572F0B41222BBDF10039395B /* reqestPage.swift in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,

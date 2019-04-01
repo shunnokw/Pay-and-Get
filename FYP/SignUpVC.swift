@@ -15,6 +15,7 @@ class SignUpVC: UIViewController {
 
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
+    @IBOutlet weak var _bankAcc: UITextField!
     var ref: DatabaseReference!
 
     @IBAction func onSignUpTapped(_ sender: Any) {
@@ -37,7 +38,7 @@ class SignUpVC: UIViewController {
             
             self.ref = Database.database().reference()
             self.performSegue(withIdentifier: "signUpSegue", sender: nil)
-            self.ref.child("users").child(user.user.uid).setValue(["username": email,"deposit": 0])
+            self.ref.child("users").child(user.user.uid).setValue(["username": email,"deposit": 0, "bankAcc": Int(self._bankAcc.text!) ?? -1])
         })
     }
 

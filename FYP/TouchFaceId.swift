@@ -8,12 +8,15 @@
 
 import UIKit
 import LocalAuthentication
+import Firebase
 
 class TouchFaceId: UIViewController {
     
     @IBOutlet weak var showName: UILabel!
     @IBOutlet weak var showAmount: UILabel!
     
+    var ref: DatabaseReference!
+    var oringinalAmount = 0
     var name = "Error"
     var amount = "Error"
 
@@ -30,6 +33,18 @@ class TouchFaceId: UIViewController {
                         if success {
                             // User authenticated successfully, take appropriate action
                             print("User authenticated successfully")
+                            //get payer original amount
+                            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+                                if let deposit = snapshot.value as? Int {
+                                    self.oringinalAmount = deposit
+                                }
+                            })
+                            //process payment (reduce payer amount)
+                            let newAmount = self.oringinalAmount-Int(self.amount)!
+                            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).setValue(["deposit": newAmount])
+                            //get payee origainal amount
+                            //process payment (increase payee amount)
+                            
                             let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
                             self.present(alert, animated: true, completion: nil)
@@ -58,6 +73,7 @@ class TouchFaceId: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.ref = Database.database().reference()
         showName.text = name
         showAmount.text = "$ \(amount)"
     }

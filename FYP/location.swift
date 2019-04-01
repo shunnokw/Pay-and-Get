@@ -19,6 +19,26 @@ class location: UIViewController , CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     var ref: DatabaseReference!
    
+    @IBAction func payTapped(_ sender: Any) {
+        checkLocation()
+    }
+    
+    @IBAction func topupTapped(_ sender: Any) {
+        var topupValue = -1
+        let alert = UIAlertController(title: "Top-Up", message: "How much would you like to top-up?", preferredStyle: .alert)
+        alert.addTextField{(textField) in textField.text = ""}
+        alert.addAction(UIAlertAction(title: "Top-up", style: .default, handler: { action in
+            let textField = alert.textFields![0]
+            textField.keyboardType = UIKeyboardType.decimalPad
+            topupValue = Int(textField.text!)!
+            topupValue += Int(self._deposit.text!)!
+            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": topupValue])
+            self.loadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func onSignOutTapped(_ sender: Any) {
         do{
             try Auth.auth().signOut()
@@ -46,7 +66,10 @@ class location: UIViewController , CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadData()
+    }
+    
+    func loadData(){
         self.ref = Database.database().reference()
         guard let username = Auth.auth().currentUser?.email else { return }
         let userID = Auth.auth().currentUser?.uid
@@ -59,7 +82,7 @@ class location: UIViewController , CLLocationManagerDelegate{
         })
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    func checkLocation() {
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled(){
@@ -67,6 +90,7 @@ class location: UIViewController , CLLocationManagerDelegate{
                 locationManager.delegate = self
                 locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
                 locationManager.startUpdatingLocation()
+                self.performSegue(withIdentifier: "scanSegue", sender: nil)
             }
             else{
                 let main = UIStoryboard(name: "Main", bundle: nil)

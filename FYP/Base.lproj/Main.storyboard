@@ -202,7 +202,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="CdR-a1-jbl" kind="show" id="WZ9-l1-ajM"/>
+                                            <action selector="payTapped:" destination="42b-4E-Kaa" eventType="touchUpInside" id="HiO-UZ-8bL"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lastest transaction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-o6-FlH">
@@ -224,6 +224,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Top-UP"/>
+                                        <connections>
+                                            <action selector="topupTapped:" destination="42b-4E-Kaa" eventType="touchUpInside" id="qYe-be-dIN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -243,11 +246,12 @@
                         <outlet property="_deposit" destination="h3u-Ai-YDc" id="3Cq-vY-yDq"/>
                         <outlet property="_username" destination="i1x-RB-Xed" id="38U-ng-Hxz"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="signOutSegue" id="kgU-sL-5eF"/>
+                        <segue destination="CdR-a1-jbl" kind="show" identifier="scanSegue" id="qTU-wc-sSv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cu-f0-5DT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588.125" y="241.90140845070422"/>
+            <point key="canvasLocation" x="1508" y="242"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="an6-vE-OBZ">
@@ -315,6 +319,23 @@ before using our service</string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="enableLS:" destination="aqp-hh-JvQ" eventType="touchUpInside" id="uU3-eS-asB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZq-AJ-yfb">
+                                <rect key="frame" x="16" y="320" width="288" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.68627450980000004" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="I have already enable location services">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="42b-4E-Kaa" kind="show" id="Jx3-WH-6f2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -424,7 +445,7 @@ before using our service</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yoe-Pg-GsR">
-                                <rect key="frame" x="48" y="156" width="224" height="227"/>
+                                <rect key="frame" x="48" y="180.5" width="224" height="227"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzg-ig-dM5">
                                 <rect key="frame" x="15" y="20" width="48" height="30"/>
@@ -437,7 +458,7 @@ before using our service</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan the code to pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-8I-lc0">
-                                <rect key="frame" x="29" y="112" width="262" height="24"/>
+                                <rect key="frame" x="29" y="136.5" width="262" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.83137254900000002" green="0.68627450980000004" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -619,11 +640,11 @@ before using our service</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank account to recieve money" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-Dh-eX1">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank account to recieve money (Only number)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-Dh-eX1">
                                 <rect key="frame" x="16" y="140" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KqK-4o-YQf">
@@ -638,6 +659,7 @@ before using our service</string>
                         <viewLayoutGuide key="safeArea" id="MV0-w7-1D9"/>
                     </view>
                     <connections>
+                        <outlet property="_bankAcc" destination="dp7-Dh-eX1" id="9od-jd-tIA"/>
                         <outlet property="_email" destination="o4L-Q4-BCi" id="Abl-b3-l0F"/>
                         <outlet property="_password" destination="0v5-Fj-S7U" id="2g7-NX-rCZ"/>
                         <segue destination="zgK-Yk-n6Z" kind="show" identifier="signUpSegue" id="DlW-vh-Lrz"/>
@@ -736,6 +758,7 @@ before using our service</string>
     <inferredMetricsTieBreakers>
         <segue reference="Fze-ne-frd"/>
         <segue reference="Afq-Ei-P7Z"/>
+        <segue reference="Jx3-WH-6f2"/>
         <segue reference="kgU-sL-5eF"/>
     </inferredMetricsTieBreakers>
 </document>
