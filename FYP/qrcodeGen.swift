@@ -21,7 +21,7 @@ class qrcodeGen: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        guard let uid = Auth.auth().currentUser?.email else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         id = uid
@@ -34,7 +34,8 @@ class qrcodeGen: UIViewController {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
-        var myString = "Target:\(id),amount:\(amount),time:"+formatter.string(from: date)+",location:(37.785834,-122.406417)"
+        //TODO: real location here
+        var myString = id! + "," + amount! + "," + formatter.string(from: date) + ",(37.785834/-122.406417)"
         
         //generate a RSA key pair
         let keyPair = try! SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)

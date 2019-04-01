@@ -17,7 +17,7 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     var qrCodeFrameView:UIView?
     @IBOutlet weak var back: UIButton!
     var printDataName = ""
-    var printDataAmount = ""
+    var printDataAmount = -1
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.destination is TouchFaceId{
@@ -110,7 +110,7 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 
                 let finalResult = result[0].split(separator: ",")
                 printDataName = String(finalResult[0])
-                printDataAmount = String(finalResult[1])
+                printDataAmount = Int(finalResult[1])!
                 
                 if(isSuccessful){
                     //Stop scanning

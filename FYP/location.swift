@@ -19,6 +19,10 @@ class location: UIViewController , CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     var ref: DatabaseReference!
    
+    @IBAction func refreshTapped(_ sender: Any) {
+        loadData() 
+    }
+    
     @IBAction func payTapped(_ sender: Any) {
         checkLocation()
     }

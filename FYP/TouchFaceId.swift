@@ -16,10 +16,9 @@ class TouchFaceId: UIViewController {
     @IBOutlet weak var showAmount: UILabel!
     
     var ref: DatabaseReference!
-    var oringinalAmount = 0
     var name = "Error"
-    var amount = "Error"
-
+    var amount = -1
+    
     @IBAction func payButton(_ sender: UIButton) {
         let myContext = LAContext()
         let myLocalizedReasonString = "Please approve the payment"
@@ -33,21 +32,18 @@ class TouchFaceId: UIViewController {
                         if success {
                             // User authenticated successfully, take appropriate action
                             print("User authenticated successfully")
-                            //get payer original amount
-                            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
-                                if let deposit = snapshot.value as? Int {
-                                    self.oringinalAmount = deposit
-                                }
-                            })
-                            //process payment (reduce payer amount)
-                            let newAmount = self.oringinalAmount-Int(self.amount)!
-                            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).setValue(["deposit": newAmount])
-                            //get payee origainal amount
-                            //process payment (increase payee amount)
+                            print("Ready to process payment")
                             
-                            let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
-                            self.present(alert, animated: true, completion: nil)
+                            if(self.pay()){
+                                let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else{
+                                let alert3 = UIAlertController(title: "Failed Payment!", message: "You have not enough deposit", preferredStyle: .alert)
+                                self.present(alert3, animated: true, completion: nil)
+                            }
+                            
                         } else {
                             // User did not authenticate successfully, look at error and take appropriate action
                             print("Sorry. Authenticate Failed")
@@ -69,6 +65,36 @@ class TouchFaceId: UIViewController {
         }
     }
     
+    func pay() -> Bool {
+        var origin = 0
+        var targetOrigin = 0
+        var finsih = false
+        //deduct from
+        ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let deposit = snapshot.value as? Int {
+                origin = deposit
+                print("origin: \(origin)")
+                let result = origin - self.amount
+                if (result >= 0){
+                    self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": result])
+                    finsih = true
+                }
+            }
+        })
+        if (finsih == true){
+           return false
+        }
+        //plus target
+        ref.child("users").child(self.name).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let deposit = snapshot.value as? Int {
+                targetOrigin = deposit
+                print("target origin: \(targetOrigin)")
+                let result2 = targetOrigin + self.amount
+                self.ref.child("users").child(self.name).updateChildValues(["deposit": result2])
+            }
+        })
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
