@@ -107,7 +107,7 @@
                     <connections>
                         <outlet property="_email" destination="cmH-cP-YdN" id="Alt-A1-NRI"/>
                         <outlet property="_password" destination="B4x-vL-PTP" id="Oxf-Ik-VhL"/>
-                        <segue destination="vFq-Gw-Z2Y" kind="show" identifier="signInSegue" id="dtC-dP-GNX"/>
+                        <segue destination="42b-4E-Kaa" kind="show" identifier="signInSegue" id="j3h-7f-eFS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -202,7 +202,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="payTapped:" destination="42b-4E-Kaa" eventType="touchUpInside" id="HiO-UZ-8bL"/>
+                                            <segue destination="CdR-a1-jbl" kind="show" id="PwD-L8-hhS"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lastest transaction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-o6-FlH">
@@ -263,12 +263,11 @@
                         <outlet property="_deposit" destination="h3u-Ai-YDc" id="3Cq-vY-yDq"/>
                         <outlet property="_username" destination="i1x-RB-Xed" id="38U-ng-Hxz"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="signOutSegue" id="kgU-sL-5eF"/>
-                        <segue destination="CdR-a1-jbl" kind="show" identifier="scanSegue" id="qTU-wc-sSv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cu-f0-5DT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1508" y="242"/>
+            <point key="canvasLocation" x="478" y="108"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="an6-vE-OBZ">
@@ -292,7 +291,7 @@
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vFq-Gw-Z2Y" kind="show" id="eke-nh-hF4"/>
+                                    <segue destination="42b-4E-Kaa" kind="show" id="eMj-P7-UEJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -362,7 +361,7 @@ before using our service</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDI-pz-NC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="242"/>
+            <point key="canvasLocation" x="-789" y="227"/>
         </scene>
         <!--Touch Face Id-->
         <scene sceneID="F0s-FK-CYY">
@@ -418,7 +417,7 @@ before using our service</string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="payButton:" destination="s8v-8L-ztg" eventType="touchUpInside" id="m70-xH-LuT"/>
-                                    <segue destination="vFq-Gw-Z2Y" kind="show" id="Fze-ne-frd"/>
+                                    <segue destination="42b-4E-Kaa" kind="show" id="TeA-PP-S3T"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPl-Nj-Yls">
@@ -462,27 +461,16 @@ before using our service</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yoe-Pg-GsR">
-                                <rect key="frame" x="48" y="156" width="224" height="227"/>
+                                <rect key="frame" x="18" y="152" width="284" height="284"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzg-ig-dM5">
-                                <rect key="frame" x="15" y="20" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="S1c-NP-fdp" kind="show" id="8BA-Ve-338"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan the code to pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-8I-lc0">
-                                <rect key="frame" x="29" y="112" width="262" height="24"/>
+                                <rect key="frame" x="29" y="108" width="262" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.83137254900000002" green="0.68627450980000004" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BME-U2-swI">
-                                <rect key="frame" x="16" y="444" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BME-U2-swI">
+                                <rect key="frame" x="16" y="459" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.68627450980000004" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Done">
@@ -493,15 +481,22 @@ before using our service</string>
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="42b-4E-Kaa" kind="show" id="fQg-mP-8PP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="centerX" secondItem="jHB-EE-hFF" secondAttribute="centerX" id="1Xs-A7-mx9"/>
-                            <constraint firstItem="yoe-Pg-GsR" firstAttribute="width" secondItem="bap-mk-2cU" secondAttribute="width" multiplier="0.7" id="Em6-RX-8xI"/>
+                            <constraint firstItem="yoe-Pg-GsR" firstAttribute="height" secondItem="bap-mk-2cU" secondAttribute="height" multiplier="0.5" id="Ft7-w9-CX1"/>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="top" secondItem="DeL-8I-lc0" secondAttribute="bottom" constant="20" id="LVQ-ID-ejC"/>
-                            <constraint firstItem="yoe-Pg-GsR" firstAttribute="height" secondItem="bap-mk-2cU" secondAttribute="height" multiplier="0.4" id="fXn-sd-7zA"/>
+                            <constraint firstItem="jHB-EE-hFF" firstAttribute="bottom" secondItem="BME-U2-swI" secondAttribute="bottom" constant="82" id="XNs-9m-2ll"/>
+                            <constraint firstItem="BME-U2-swI" firstAttribute="centerX" secondItem="jHB-EE-hFF" secondAttribute="centerX" id="aLQ-qh-eN7"/>
+                            <constraint firstItem="BME-U2-swI" firstAttribute="top" secondItem="yoe-Pg-GsR" secondAttribute="bottom" constant="20" id="lf6-Jf-val"/>
                             <constraint firstItem="DeL-8I-lc0" firstAttribute="centerX" secondItem="jHB-EE-hFF" secondAttribute="centerX" id="ngn-f8-Kog"/>
+                            <constraint firstItem="BME-U2-swI" firstAttribute="width" secondItem="bap-mk-2cU" secondAttribute="width" multiplier="0.8" id="pGw-XC-kiQ"/>
+                            <constraint firstItem="yoe-Pg-GsR" firstAttribute="width" secondItem="bap-mk-2cU" secondAttribute="height" multiplier="1:2" id="pdn-Mm-f6f"/>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="centerY" secondItem="jHB-EE-hFF" secondAttribute="centerY" id="rav-iE-aig"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jHB-EE-hFF"/>
@@ -562,7 +557,7 @@ before using our service</string>
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vFq-Gw-Z2Y" kind="show" id="j08-jB-SHW"/>
+                                    <segue destination="42b-4E-Kaa" kind="show" id="kLD-pe-tDY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -593,7 +588,7 @@ before using our service</string>
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vFq-Gw-Z2Y" kind="show" id="GJK-nI-dUa"/>
+                                    <segue destination="42b-4E-Kaa" kind="show" id="7B5-Zo-QPr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -743,9 +738,6 @@ before using our service</string>
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="vFq-Gw-Z2Y" kind="show" id="qWi-M6-cI4"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -756,40 +748,12 @@ before using our service</string>
             </objects>
             <point key="canvasLocation" x="2349" y="-595"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="0vq-5W-H3O">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="vFq-Gw-Z2Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kVK-ZN-iOl"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tiZ-xc-Iqh">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="51E-24-g9K">
-                        <rect key="frame" x="0.0" y="475" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="42b-4E-Kaa" kind="relationship" relationship="rootViewController" id="gEA-ol-JZt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="52y-gD-1eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="590.625" y="241.90140845070422"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Screen Shot 2019-02-08 at 8.42.06 PM" width="333" height="136"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fze-ne-frd"/>
-        <segue reference="Afq-Ei-P7Z"/>
-        <segue reference="gEA-ol-JZt"/>
+        <segue reference="fQg-mP-8PP"/>
         <segue reference="kgU-sL-5eF"/>
     </inferredMetricsTieBreakers>
 </document>

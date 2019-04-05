@@ -8,23 +8,17 @@
 
 import Foundation
 import UIKit
-import MapKit
 import FirebaseDatabase
 import Firebase
-import CoreLocation
 
-class location: UIViewController , CLLocationManagerDelegate{
+class location: UIViewController{
     @IBOutlet weak var _username: UILabel!
     @IBOutlet weak var _deposit: UILabel!
-    var locationManager = CLLocationManager()
+    
     var ref: DatabaseReference!
    
     @IBAction func refreshTapped(_ sender: Any) {
         loadData() 
-    }
-    
-    @IBAction func payTapped(_ sender: Any) {
-        checkLocation()
     }
     
     @IBAction func topupTapped(_ sender: Any) {
@@ -52,22 +46,6 @@ class location: UIViewController , CLLocationManagerDelegate{
         }
     }
     
-    func hasLocationPermission() -> Bool {
-        var hasPermission = false
-        if CLLocationManager.locationServicesEnabled() {
-            switch CLLocationManager.authorizationStatus() {
-            case .notDetermined, .restricted, .denied:
-                hasPermission = false
-            case .authorizedAlways, .authorizedWhenInUse:
-                hasPermission = true
-            }
-        } else {
-            hasPermission = false
-        }
-        
-        return hasPermission
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -85,40 +63,7 @@ class location: UIViewController , CLLocationManagerDelegate{
             }
         })
     }
-    
-    func checkLocation() {
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled(){
-            if hasLocationPermission(){
-                locationManager.delegate = self
-                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                locationManager.startUpdatingLocation()
-                self.performSegue(withIdentifier: "scanSegue", sender: nil)
-            }
-            else{
-                let main = UIStoryboard(name: "Main", bundle: nil)
-                let target = main.instantiateViewController(withIdentifier: "EnableLocaVC")
-                self.present(target, animated: true, completion: nil)
-            }
-        }
-        else{
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            let target = main.instantiateViewController(withIdentifier: "EnableLocaVC")
-            self.present(target, animated: true, completion: nil)
-        }
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        //let userLocation = locations.last
-        //let viewRegion = MKCoordinateRegionMakeWithDistance((userLocation?.coordinate)!, 600, 600)
-        //self.map.setRegion(viewRegion, animated: true)
-    }
-    
 }

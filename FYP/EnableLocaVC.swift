@@ -41,12 +41,13 @@ class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
             else{
-                let main = UIStoryboard(name: "Main", bundle: nil)
-                let target2 = main.instantiateViewController(withIdentifier: "location")
+                //let main = UIStoryboard(name: "Main", bundle: nil)
+                //let target2 = main.instantiateViewController(withIdentifier: "location")
                 
                 if CLLocationManager.locationServicesEnabled(){
                     if hasLocationPermission(){
-                        self.present(target2, animated: true, completion: nil)
+                        //self.present(target2, animated: true, completion: nil)
+                        performSegueToReturnBack()
                     }
                 }
             }
@@ -54,12 +55,13 @@ class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let target2 = main.instantiateViewController(withIdentifier: "location")
+        //let main = UIStoryboard(name: "Main", bundle: nil)
+        //let target2 = main.instantiateViewController(withIdentifier: "location")
         
         if CLLocationManager.locationServicesEnabled(){
             if hasLocationPermission(){
-                self.present(target2, animated: true, completion: nil)
+                //self.present(target2, animated: true, completion: nil)
+                performSegueToReturnBack()
             }
         }
     }
@@ -82,4 +84,14 @@ class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
     }
     */
 
+}
+
+extension UIViewController {
+    func performSegueToReturnBack()  {
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }

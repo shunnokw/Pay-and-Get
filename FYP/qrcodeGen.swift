@@ -26,7 +26,7 @@ class qrcodeGen: UIViewController {
         }
         id = uid
         qrShowFun()
-        var qrTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(qrcodeGen.qrShowFun), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(qrcodeGen.qrShowFun), userInfo: nil, repeats: true)
     }
     
     //function to show QR Code on screen
