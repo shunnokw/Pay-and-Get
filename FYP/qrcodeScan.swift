@@ -21,6 +21,7 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     var printDataAmount = -1
     var printLocation = CLLocation(latitude: 0, longitude: 0)
     var printTime = Date()
+    var printSSID = ""
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.destination is TouchFaceId{
@@ -29,6 +30,7 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
             vc?.amount = printDataAmount
             vc?.targetLocation = printLocation
             vc?.time = printTime
+            vc?.targetBSSID = printSSID
         }
     }
     
@@ -126,6 +128,7 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
                 printTime = dateFormatter.date(from: iosDate)!
+                printSSID = String(finalResult[4])
                 
                 if(isSuccessful){
                     //Stop scanning

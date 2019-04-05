@@ -43,9 +43,10 @@ class qrcodeGen: UIViewController, CLLocationManagerDelegate{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
         let i = locationOfGender()
+        let genSSID = Network().getWiFiSsid()
         
         let oldString = id! + "," + amount! + "," + formatter.string(from: date) + ","
-        var myString = oldString + i
+        var myString = oldString + i + "," + genSSID!
         print("myString is: \(myString)")
         
         //generate a RSA key pair

@@ -21,7 +21,9 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     var name = "Error"
     var amount = -1
     var targetLocation = CLLocation(latitude: 0, longitude: 0)
+    var targetBSSID = ""
     var time = Date()
+    
     
     @IBAction func payButton(_ sender: UIButton) {
         let myContext = LAContext()
@@ -31,8 +33,8 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             let p = locationManager.location!.coordinate
             let userLocation = CLLocation(latitude: p.latitude, longitude: p.longitude)
             let d = userLocation.distance(from: targetLocation) //meters
-            if(d<=10){ //distance should be under 10 meters
-                if(isWithInTimeLimit()&&isSameAP()){
+            if(d<=10 || isSameAP()){ //distance should be under 10 meters
+                if(isWithInTimeLimit()){
                     var authError: NSError?
                     if #available(iOS 8.0, macOS 10.12.1, *) {
                         if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
@@ -74,7 +76,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                     }
                 }
                 else{
-                    print("Time Error or AP Error")
+                    print("Time Error")
                 }
             }
             else{
@@ -87,8 +89,13 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     }
     
     func isSameAP() -> Bool{
-        //TODO: Connected to same AP
-        return true
+        let bssid = Network().getWiFiSsid()
+        if (bssid == targetBSSID){
+            return true
+        }
+        else{
+            return false
+        }
     }
     
     func isWithInTimeLimit() -> Bool {
