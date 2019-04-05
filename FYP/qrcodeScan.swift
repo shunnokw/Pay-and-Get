@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import SwiftyRSA
+import CoreLocation
 
 class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
 
@@ -18,21 +19,27 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     @IBOutlet weak var back: UIButton!
     var printDataName = ""
     var printDataAmount = -1
+    var printLocation = CLLocation(latitude: 0, longitude: 0)
+    var printTime = Date()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.destination is TouchFaceId{
             let vc = segue.destination as? TouchFaceId
             vc?.name = printDataName
             vc?.amount = printDataAmount
+            vc?.targetLocation = printLocation
+            vc?.time = printTime
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let alert2 = UIAlertController(title: "Alert", message: "Please place the QR code in front of the camera", preferredStyle: .alert)
+        alert2.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert2, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let alert2 = UIAlertController(title: "Alert", message: "Please place the QR code in front of the camera", preferredStyle: .alert)
-        alert2.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert2, animated: true, completion: nil)
-
         // Do any additional setup after loading the view.
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
         
@@ -111,6 +118,14 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 let finalResult = result[0].split(separator: ",")
                 printDataName = String(finalResult[0])
                 printDataAmount = Int(finalResult[1])!
+                let addressResult = finalResult[3].split(separator: "/")
+                let lat = Double(addressResult[0])!
+                let long = Double(addressResult[1])!
+                printLocation = CLLocation(latitude: lat, longitude: long)
+                let iosDate = String(finalResult[2])
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
+                printTime = dateFormatter.date(from: iosDate)!
                 
                 if(isSuccessful){
                     //Stop scanning

@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 import SwiftyRSA
 import Foundation
+import CoreLocation
 
-class qrcodeGen: UIViewController {
+class qrcodeGen: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var qrShow: UIImageView!
     var amount: String?
     var id: String?
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         
@@ -29,13 +31,22 @@ class qrcodeGen: UIViewController {
         Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(qrcodeGen.qrShowFun), userInfo: nil, repeats: true)
     }
     
+    func locationOfGender() -> String {
+        let loc = locationManager.location!.coordinate
+        let result = String(loc.latitude) + "/" + String (loc.longitude)
+        return result
+    }
+    
     //function to show QR Code on screen
     @objc func qrShowFun(){
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
-        //TODO: real location here
-        var myString = id! + "," + amount! + "," + formatter.string(from: date) + ",(37.785834/-122.406417)"
+        let i = locationOfGender()
+        
+        let oldString = id! + "," + amount! + "," + formatter.string(from: date) + ","
+        var myString = oldString + i
+        print("myString is: \(myString)")
         
         //generate a RSA key pair
         let keyPair = try! SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)

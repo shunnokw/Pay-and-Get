@@ -539,7 +539,7 @@ before using our service</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="vn3-rO-2pO" kind="show" id="wgQ-qI-WZR"/>
+                                    <action selector="clickedOnRequest:" destination="S1c-NP-fdp" eventType="touchUpInside" id="x2d-MC-EMa"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN6-Z6-GJc">
@@ -566,11 +566,12 @@ before using our service</string>
                     </view>
                     <connections>
                         <outlet property="collectInput" destination="AN6-Z6-GJc" id="1bB-en-II2"/>
+                        <segue destination="vn3-rO-2pO" kind="show" identifier="requestSegue" id="pBA-Ne-Cfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GQ-He-gNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1508" y="992"/>
+            <point key="canvasLocation" x="1313" y="992"/>
         </scene>
         <!--Qrcode Scan-->
         <scene sceneID="wCs-Th-97j">
@@ -753,7 +754,7 @@ before using our service</string>
         <image name="Screen Shot 2019-02-08 at 8.42.06 PM" width="333" height="136"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fQg-mP-8PP"/>
+        <segue reference="kLD-pe-tDY"/>
         <segue reference="kgU-sL-5eF"/>
     </inferredMetricsTieBreakers>
 </document>
