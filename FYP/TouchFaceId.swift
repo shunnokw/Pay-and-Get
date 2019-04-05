@@ -182,8 +182,12 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        var realName = ""
         self.ref = Database.database().reference()
-        showName.text = name
+        ref.child("users").child(self.name).child("username").observeSingleEvent(of: .value, with: { (snapshot) in
+            realName = (snapshot.value as? String)!
+        })
+        showName.text = realName
         showAmount.text = "$ \(amount)"
     }
 }
