@@ -23,7 +23,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     var targetLocation = CLLocation(latitude: 0, longitude: 0)
     var targetBSSID = ""
     var time = Date()
-    
+    let uid = Auth.auth().currentUser?.uid
     
     @IBAction func payButton(_ sender: UIButton) {
         let myContext = LAContext()
@@ -47,6 +47,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                                         
                                         if(self.pay()){
                                             let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
+                                            self.createRecord()
                                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
                                             self.present(alert, animated: true, completion: nil)
                                         }
@@ -139,6 +140,26 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         return true
     }
     
+    func createRecord(){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
+        
+        let newTransactionRef = self.ref!
+                                .child("transaction")
+                                .childByAutoId()
+        let newTransactionID = newTransactionRef.key
+        
+        let newTransactionData = [
+            "transaction_id": newTransactionID,
+            "amount": amount as! Int,
+            "payee_id": name as! String,
+            "payer_id": uid as! String,
+            "time": formatter.string(from: date) as! String
+            ] as [String : Any]
+        newTransactionRef.setValue(newTransactionData)
+    }
+    
     func checkLocation() -> Bool{
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -187,7 +208,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         ref.child("users").child(self.name).child("username").observeSingleEvent(of: .value, with: { (snapshot) in
             realName = (snapshot.value as? String)!
         })
-        showName.text = realName
+        showName.text = name
         showAmount.text = "$ \(amount)"
     }
 }
