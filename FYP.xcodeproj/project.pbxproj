@@ -17,6 +17,8 @@
 		0F450A8F21FC2ACD008C2406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450A8D21FC2ACD008C2406 /* LaunchScreen.storyboard */; };
 		0F5AEC79222E613A0019FE8F /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AEC78222E613A0019FE8F /* LoginPage.swift */; };
 		0F6A71A52258578E00C12308 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6A71A42258578E00C12308 /* ExternalAccessory.framework */; };
+		0F6A71A722586AC700C12308 /* VCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A71A622586AC700C12308 /* VCTableViewCell.swift */; };
+		0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A71A822586E5000C12308 /* TransactionModel.swift */; };
 		0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */; };
 		0FFC3051222ECEE4009BAEE8 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */; };
 		0FFC3053222EDA12009BAEE8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3052222EDA12009BAEE8 /* AlertController.swift */; };
@@ -43,6 +45,8 @@
 		0F5AEC74222E5C120019FE8F /* FYP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FYP.entitlements; sourceTree = "<group>"; };
 		0F5AEC78222E613A0019FE8F /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		0F6A71A42258578E00C12308 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		0F6A71A622586AC700C12308 /* VCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTableViewCell.swift; sourceTree = "<group>"; };
+		0F6A71A822586E5000C12308 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0FFC3052222EDA12009BAEE8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 		0F450A8021FC2ACC008C2406 /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				0F6A71AA2258763500C12308 /* Model */,
 				0F450A9021FC2ACD008C2406 /* Info.plist */,
 				0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */,
 				0F5AEC74222E5C120019FE8F /* FYP.entitlements */,
@@ -102,6 +107,7 @@
 				0F450A8121FC2ACC008C2406 /* AppDelegate.swift */,
 				57FA7E01223121C500E7B24F /* EnableLocaVC.swift */,
 				0F10739F220DF7D100B29CCB /* location.swift */,
+				0F6A71A622586AC700C12308 /* VCTableViewCell.swift */,
 				0F5AEC78222E613A0019FE8F /* LoginPage.swift */,
 				5728E8482257DB8E001288A5 /* Network.swift */,
 				57EB7711220F2901000BD5DF /* qrcodeGen.swift */,
@@ -122,6 +128,14 @@
 				38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F6A71AA2258763500C12308 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F6A71A822586E5000C12308 /* TransactionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8BB42A3A7C404CFC9253A84 /* Pods */ = {
@@ -276,10 +290,12 @@
 				57119BAB2252713600262AE5 /* topUp.swift in Sources */,
 				5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */,
 				572F0B41222BBDF10039395B /* reqestPage.swift in Sources */,
+				0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,
 				0F1073A0220DF7D100B29CCB /* location.swift in Sources */,
 				57FA7E02223121C500E7B24F /* EnableLocaVC.swift in Sources */,
 				0FFC3053222EDA12009BAEE8 /* AlertController.swift in Sources */,
+				0F6A71A722586AC700C12308 /* VCTableViewCell.swift in Sources */,
 				0FFC3051222ECEE4009BAEE8 /* SignUpVC.swift in Sources */,
 				0F450A8221FC2ACC008C2406 /* AppDelegate.swift in Sources */,
 			);

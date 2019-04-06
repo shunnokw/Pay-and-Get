@@ -152,7 +152,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         
         let newTransactionData = [
             "transaction_id": newTransactionID,
-            "amount": amount as! Int,
+            "amount": amount as! String,
             "payee_id": name as! String,
             "payer_id": uid as! String,
             "time": formatter.string(from: date) as! String
