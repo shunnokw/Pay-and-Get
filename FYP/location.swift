@@ -17,9 +17,20 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableViewTransaction: UITableView!
     var ref: DatabaseReference!
     var tranList = [TransactionModel]()
+    let cellSpacingHeight: CGFloat = 5
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tranList.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
