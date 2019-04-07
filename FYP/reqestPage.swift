@@ -34,10 +34,6 @@ class reqestPage: UIViewController, CLLocationManagerDelegate{
         guard let QRGen = segue.destination as? qrcodeGen else { return }
         QRGen.amount = collectInput.text!
     }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     func checkLocation() -> Bool{
         self.locationManager.requestWhenInUseAuthorization()

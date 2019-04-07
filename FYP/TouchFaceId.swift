@@ -35,13 +35,16 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             let d = userLocation.distance(from: targetLocation) //meters
             if(d<=10 || isSameAP()){ //distance should be under 10 meters
                 if(isWithInTimeLimit()){
+                    print("User authenticating")
                     var authError: NSError?
-                    if #available(iOS 8.0, macOS 10.12.1, *) {
+                    print("Checking iOS Version")
+                    if #available(iOS 8.0, *) {
+                        print("Checking evaluation policy")
                         if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
                             myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
                                 DispatchQueue.main.async{
+                                    print("Dispatch")
                                     if success {
-                                        // User authenticated successfully, take appropriate action
                                         print("User authenticated successfully")
                                         print("Ready to process payment")
                                         
@@ -67,7 +70,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                             }
                         } else {
                             // Could not evaluate policy; look at authError and present an appropriate message to user
-                            let alert2 = UIAlertController(title: "Alert", message: "Do you want to pay with passcode?", preferredStyle: .alert)
+                            let alert2 = UIAlertController(title: "Alert", message: "Please try again and pay with your device password", preferredStyle: .alert)
                             alert2.addAction(UIAlertAction(title: "OK", style: .default))
                             self.present(alert2, animated: true, completion: nil)
                         }
@@ -82,10 +85,16 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             }
             else{
                 print("Distance Error")
+                let alertD = UIAlertController(title: "Distance Error", message: "Location are not close enough. Try connect to same WiFi newtwork", preferredStyle: .alert)
+                alertD.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertD, animated: true, completion: nil)
             }
         }
         else{
             print("Location Services Error")
+            let alertk = UIAlertController(title: "Alert", message: "Location Services Error", preferredStyle: .alert)
+            alertk.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertk, animated: true, completion: nil)
         }
     }
     
@@ -141,6 +150,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     }
     
     func createRecord(){
+        print("Creating transaction record")
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
@@ -151,11 +161,11 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         let newTransactionID = newTransactionRef.key
         
         let newTransactionData = [
-            "transaction_id": newTransactionID,
-            "amount": amount as! String,
-            "payee_id": name as! String,
-            "payer_id": uid as! String,
-            "time": formatter.string(from: date) as! String
+            "transaction_id": newTransactionID ?? -1,
+            "amount": String(amount) as NSString,
+            "payee_id": name as NSString,
+            "payer_id": uid! as NSString,
+            "time": formatter.string(from: date) as NSString
             ] as [String : Any]
         newTransactionRef.setValue(newTransactionData)
     }
@@ -173,16 +183,38 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             else{
                 let main = UIStoryboard(name: "Main", bundle: nil)
                 let target = main.instantiateViewController(withIdentifier: "EnableLocaVC")
-                self.present(target, animated: true, completion: nil)
+                
+                addChildViewController(target)
+                target.view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                view.addSubview(target.view)
+                target.didMove(toParentViewController: self)
+                
+                //self.present(target, animated: true, completion: nil)
                 return false
             }
         }
         else{
             let main = UIStoryboard(name: "Main", bundle: nil)
             let target = main.instantiateViewController(withIdentifier: "EnableLocaVC")
-            self.present(target, animated: true, completion: nil)
+            
+            addChildViewController(target)
+            target.view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+            view.addSubview(target.view)
+            view.tag = 0
+            target.didMove(toParentViewController: self)
+            
+            //self.present(target, animated: true, completion: nil)
             return false
         }
+    }
+    
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    // Screen height.
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
     }
     
     func hasLocationPermission() -> Bool {

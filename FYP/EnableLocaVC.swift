@@ -11,6 +11,10 @@ import MapKit
 import CoreLocation
 
 class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
+    @IBAction func alreadyTapped(_ sender: Any) {
+        let viewWithTag = self.view.viewWithTag(0)
+        viewWithTag?.removeFromSuperview()
+    }
     
     var locationManager = CLLocationManager()
     func hasLocationPermission() -> Bool {
@@ -47,7 +51,8 @@ class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
                 if CLLocationManager.locationServicesEnabled(){
                     if hasLocationPermission(){
                         //self.present(target2, animated: true, completion: nil)
-                        performSegueToReturnBack()
+                        let viewWithTag = self.view.viewWithTag(0)
+                        viewWithTag?.removeFromSuperview()
                     }
                 }
             }
@@ -61,7 +66,8 @@ class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled(){
             if hasLocationPermission(){
                 //self.present(target2, animated: true, completion: nil)
-                performSegueToReturnBack()
+                let viewWithTag = self.view.viewWithTag(0)
+                viewWithTag?.removeFromSuperview()
             }
         }
     }
@@ -72,26 +78,7 @@ class EnableLocaVC: UIViewController,CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-extension UIViewController {
-    func performSegueToReturnBack()  {
-        if let nav = self.navigationController {
-            nav.popViewController(animated: true)
-        } else {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-}
+

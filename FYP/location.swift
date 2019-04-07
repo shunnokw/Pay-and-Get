@@ -63,7 +63,15 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         alert.addAction(UIAlertAction(title: "Top-up", style: .default, handler: { action in
             let textField = alert.textFields![0]
             textField.keyboardType = UIKeyboardType.decimalPad
-            topupValue = Int(textField.text!)!
+            guard let validInput = textField.text, !validInput.isEmpty else{
+                print("No value input")
+                return
+            }
+            guard validInput.isNumeric else{
+                print("Not Number")
+                return
+            }
+            topupValue = Int(validInput)!
             topupValue += Int(self._deposit.text!)!
             self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": topupValue])
             self.loadData()
@@ -81,11 +89,8 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    @IBOutlet weak var NavBar: UINavigationBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
         loadData()
     }
     
@@ -130,5 +135,13 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 self.tableViewTransaction.reloadData()
             }
         })
+    }
+}
+
+extension String {
+    var isNumeric: Bool {
+        guard self.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(self.characters).isSubset(of: nums)
     }
 }
