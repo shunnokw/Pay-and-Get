@@ -36,8 +36,13 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         let alert2 = UIAlertController(title: "Alert", message: "Please place the QR code in front of the camera", preferredStyle: .alert)
-        alert2.addAction(UIAlertAction(title: "OK", style: .default))
+        //alert2.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert2, animated: true, completion: nil)
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert2.dismiss(animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
