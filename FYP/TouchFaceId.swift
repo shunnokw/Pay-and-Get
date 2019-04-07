@@ -62,7 +62,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                                     } else {
                                         // User did not authenticate successfully, look at error and take appropriate action
                                         print("Sorry. Authenticate Failed")
-                                        let alert2 = UIAlertController(title: "Alert", message: "Sorry. Authenticate Failed. Do you want to pay with passcode?", preferredStyle: .alert)
+                                        let alert2 = UIAlertController(title: "Alert", message: "Sorry. Authenticate Failed. Please try again and pay with your device password", preferredStyle: .alert)
                                         alert2.addAction(UIAlertAction(title: "OK", style: .default))
                                         self.present(alert2, animated: true, completion: nil)
                                     }
@@ -70,7 +70,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                             }
                         } else {
                             // Could not evaluate policy; look at authError and present an appropriate message to user
-                            let alert2 = UIAlertController(title: "Alert", message: "Please try again and pay with your device password", preferredStyle: .alert)
+                            let alert2 = UIAlertController(title: "Alert", message: "Sorry. Authenticate Failed. Please try again and pay with your device password", preferredStyle: .alert)
                             alert2.addAction(UIAlertAction(title: "OK", style: .default))
                             self.present(alert2, animated: true, completion: nil)
                         }
@@ -81,6 +81,9 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                 }
                 else{
                     print("Time Error")
+                    let alertt = UIAlertController(title: "Time Error", message: "The QR Code is not used within 60 seconds", preferredStyle: .alert)
+                    alertt.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alertt, animated: true, completion: nil)
                 }
             }
             else{
@@ -92,9 +95,9 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         }
         else{
             print("Location Services Error")
-            let alertk = UIAlertController(title: "Alert", message: "Location Services Error", preferredStyle: .alert)
-            alertk.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alertk, animated: true, completion: nil)
+//            let alertk = UIAlertController(title: "Alert", message: "Location Services Error", preferredStyle: .alert)
+//            alertk.addAction(UIAlertAction(title: "OK", style: .default))
+//            self.present(alertk, animated: true, completion: nil)
         }
     }
     
@@ -110,7 +113,8 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     
     func isWithInTimeLimit() -> Bool {
         let timeDifference = time.timeIntervalSinceNow
-        if (timeDifference < 60){
+        print("Time difference is: \(timeDifference)")
+        if (timeDifference < 60 && timeDifference > -60){
             return true
         }
         else{

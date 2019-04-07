@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,11 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Screen Shot 2019-02-08 at 8.42.06 PM" translatesAutoresizingMaskIntoConstraints="NO" id="PK3-3B-caw">
-                                <rect key="frame" x="47" y="243" width="227" height="83"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2019-02-08 at 8.42.06 PM" translatesAutoresizingMaskIntoConstraints="NO" id="PK3-3B-caw">
+                                <rect key="frame" x="-21" y="194" width="363" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PK3-3B-caw" secondAttribute="height" multiplier="136:75" id="PjJ-HO-xVl"/>
+                                    <constraint firstAttribute="height" constant="200" id="coR-fO-Umx"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PK3-3B-caw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Fac-YG-B23"/>
                             <constraint firstItem="PK3-3B-caw" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="m9n-sE-15L"/>
@@ -36,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2019-02-08 at 8.42.06 PM" width="333" height="136"/>
+        <image name="Screen Shot 2019-02-08 at 8.42.06 PM" width="272" height="281"/>
     </resources>
 </document>

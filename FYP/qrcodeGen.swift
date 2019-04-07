@@ -105,6 +105,10 @@ class qrcodeGen: UIViewController, CLLocationManagerDelegate{
         qrShow.image = UIImage(cgImage: cgImage)
     }
     
+        override var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
+    
 
     /*
     // MARK: - Navigation
