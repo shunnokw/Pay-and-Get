@@ -19,8 +19,6 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var tranList = [TransactionModel]()
     let cellSpacingHeight: CGFloat = 5
     
-    
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tranList.count
     }
@@ -89,12 +87,40 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    lazy var refresher : UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .gray
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh")
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        
+        if #available(iOS 10.0, *){
+            scrollView.refreshControl = refresher
+            refresher.bounds.origin.y -= 70
+        } else{
+            scrollView.addSubview(refresher)
+            refresher.bounds.origin.y -= 70
+        }
+    }
+    
+    @objc func didPullToRefresh() {
+        print("Refershing")
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline){
+            self.loadData()
+            self.refresher.endRefreshing()
+        }
     }
     
     func loadData(){
+        print("Loading data")
         self.ref = Database.database().reference()
         guard let username = Auth.auth().currentUser?.email else { return }
         let userID = Auth.auth().currentUser?.uid
@@ -135,6 +161,7 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 self.tableViewTransaction.reloadData()
             }
         })
+        print("Finish loading data")
     }
 }
 

@@ -16,6 +16,14 @@ class reqestPage: UIViewController, CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     
     @IBAction func clickedOnRequest(_ sender: Any) {
+        guard let validInput = collectInput.text, !validInput.isEmpty else{
+            print("No input")
+            return
+        }
+        guard validInput.isNumeric else{
+            print("Not Number")
+            return
+        }
         if(checkLocation()){
             self.performSegue(withIdentifier: "requestSegue", sender: nil)
         }
@@ -35,6 +43,14 @@ class reqestPage: UIViewController, CLLocationManagerDelegate{
         QRGen.amount = collectInput.text!
     }
     
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
     func checkLocation() -> Bool{
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -48,14 +64,22 @@ class reqestPage: UIViewController, CLLocationManagerDelegate{
             else{
                 let main = UIStoryboard(name: "Main", bundle: nil)
                 let target = main.instantiateViewController(withIdentifier: "EnableLocaVC")
-                self.present(target, animated: true, completion: nil)
+                addChildViewController(target)
+                target.view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                view.addSubview(target.view)
+                target.didMove(toParentViewController: self)
+                //self.present(target, animated: true, completion: nil)
                 return false
             }
         }
         else{
             let main = UIStoryboard(name: "Main", bundle: nil)
             let target = main.instantiateViewController(withIdentifier: "EnableLocaVC")
-            self.present(target, animated: true, completion: nil)
+            addChildViewController(target)
+            target.view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+            view.addSubview(target.view)
+            target.didMove(toParentViewController: self)
+            //self.present(target, animated: true, completion: nil)
             return false
         }
     }
