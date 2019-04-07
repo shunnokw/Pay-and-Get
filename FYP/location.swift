@@ -49,18 +49,13 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //returning cell
         return cell
     }
-   
-    @IBAction func refreshTapped(_ sender: Any) {
-        loadData() 
-    }
     
     @IBAction func topupTapped(_ sender: Any) {
         var topupValue = -1
         let alert = UIAlertController(title: "Top-Up", message: "How much would you like to top-up?", preferredStyle: .alert)
-        alert.addTextField{(textField) in textField.text = ""}
+        alert.addTextField(configurationHandler: {textField in textField.text = ""; textField.keyboardType = UIKeyboardType.decimalPad})
         alert.addAction(UIAlertAction(title: "Top-up", style: .default, handler: { action in
             let textField = alert.textFields![0]
-            textField.keyboardType = UIKeyboardType.decimalPad
             guard let validInput = textField.text, !validInput.isEmpty else{
                 print("No value input")
                 return

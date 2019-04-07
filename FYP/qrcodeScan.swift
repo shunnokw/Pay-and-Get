@@ -136,9 +136,14 @@ class qrcodeScan: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                     qrCodeFrameView?.isHidden = true
                     self.captureSession.stopRunning()
                     
-                    let alert = UIAlertController(title: "Alert", message: "Verified", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Succeed", message: "Data Verification Succeed", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paySegue", sender: nil)}))
                     self.present(alert, animated: true, completion: nil)
+                }
+                else{
+                    let alertp = UIAlertController(title: "Failed", message: "Data verification Failed, Please scan another code", preferredStyle: .alert)
+                    alertp.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alertp, animated: true, completion: nil)
                 }
             }
         }
