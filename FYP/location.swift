@@ -19,6 +19,8 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var tranList = [TransactionModel]()
     let cellSpacingHeight: CGFloat = 5
     
+    
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tranList.count
     }
@@ -79,8 +81,11 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    @IBOutlet weak var NavBar: UINavigationBar!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
         loadData()
     }
     
@@ -125,8 +130,5 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 self.tableViewTransaction.reloadData()
             }
         })
-    }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
 }
