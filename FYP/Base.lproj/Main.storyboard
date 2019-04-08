@@ -549,16 +549,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Success" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXF-EG-N9N">
-                                <rect key="frame" x="35.5" y="276" width="249" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Succeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXF-EG-N9N">
+                                <rect key="frame" x="33.5" y="276" width="253" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HY-kY-zJV">
-                                <rect key="frame" x="16" y="322" width="288" height="30"/>
+                                <rect key="frame" x="16" y="342" width="288" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Back">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -573,7 +573,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5HY-kY-zJV" firstAttribute="top" secondItem="qXF-EG-N9N" secondAttribute="bottom" constant="10" id="HEx-Zq-v5u"/>
+                            <constraint firstItem="5HY-kY-zJV" firstAttribute="top" secondItem="qXF-EG-N9N" secondAttribute="bottom" constant="30" id="HEx-Zq-v5u"/>
                             <constraint firstItem="5HY-kY-zJV" firstAttribute="width" secondItem="Kki-p9-e2P" secondAttribute="width" multiplier="0.9" id="IFH-MN-GHR"/>
                             <constraint firstItem="5HY-kY-zJV" firstAttribute="centerX" secondItem="oYm-tS-okd" secondAttribute="centerX" id="JoL-eZ-sNJ"/>
                             <constraint firstItem="qXF-EG-N9N" firstAttribute="centerY" secondItem="oYm-tS-okd" secondAttribute="centerY" id="pWu-d7-A6s"/>
@@ -773,9 +773,12 @@ before using our service</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BME-U2-swI">
-                                <rect key="frame" x="16" y="459" width="288" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BME-U2-swI">
+                                <rect key="frame" x="16" y="456" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BME-U2-swI" secondAttribute="height" multiplier="48:5" id="hbe-Ym-wgQ"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1330,7 +1333,7 @@ before using our service</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bua-tI-Gn5"/>
-        <segue reference="VBD-BP-NkD"/>
+        <segue reference="eMj-P7-UEJ"/>
         <segue reference="4Sa-NQ-mKr"/>
     </inferredMetricsTieBreakers>
 </document>
