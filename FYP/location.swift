@@ -136,20 +136,27 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 //clearing the list
                 self.tranList.removeAll()
                 
-                //TODO: query the real record according to user id")
                 //iterating through all the values
                 for transactions in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
                     let tranObject = transactions.value as? [String: AnyObject]
                     let tranDate  = tranObject?["time"]
                     let tranAmount  = tranObject?["amount"]
-                    let tranTarget = tranObject?["payee_id"]
-                    
-                    //creating artist object with model and fetched values
-                    let transaction = TransactionModel(date: tranDate as! String?, target: tranTarget as! String?, amount: tranAmount as! String?)
+                    let tranTarget = tranObject?["payee_id"] as? String
+                    let tranFrom = tranObject?["payer_id"] as? String
                     
                     //appending it to list
-                    self.tranList.append(transaction)
+                    if (tranTarget == userID  || tranFrom == userID){
+                        //creating artist object with model and fetched values
+                        let transaction = TransactionModel(date: tranDate as? String, target: tranTarget, amount: tranAmount as? String)
+                        if(tranFrom == userID){
+                            transaction.amount = "-" + transaction.amount!
+                        }
+                        else{
+                            transaction.amount = "+" + transaction.amount!
+                        }
+                        self.tranList.append(transaction)
+                    }
                 }
                 
                 //reloading the tableview
