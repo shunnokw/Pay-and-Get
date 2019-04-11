@@ -139,7 +139,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="black" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Zk-MY-7jI">
-                                        <rect key="frame" x="16" y="286" width="288" height="227"/>
+                                        <rect key="frame" x="16" y="228" width="288" height="227"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableHeaderView" contentMode="scaleToFill" id="Zc4-IK-SkN">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
@@ -254,24 +254,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-NA-7zo">
-                                        <rect key="frame" x="16" y="215" width="288" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Logout">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onSignOutTapped:" destination="42b-4E-Kaa" eventType="touchUpInside" id="gRh-PN-6zK"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastest transaction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-o6-FlH">
-                                        <rect key="frame" x="20" y="255" width="171" height="21"/>
+                                        <rect key="frame" x="20" y="197" width="171" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="171" id="Ziw-0H-ddd"/>
                                         </constraints>
@@ -306,7 +290,7 @@
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7F-Ao-ojG">
                                         <rect key="frame" x="260" y="116.5" width="40" height="40"/>
-                                        <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="1yv-d6-gmK"/>
                                             <constraint firstAttribute="height" constant="40" id="Ly0-iz-Exu"/>
@@ -330,7 +314,6 @@
                                     <constraint firstItem="h3u-Ai-YDc" firstAttribute="centerY" secondItem="OoD-Zc-C6M" secondAttribute="centerY" id="6ef-Oz-z43"/>
                                     <constraint firstItem="dhW-UP-9oJ" firstAttribute="top" secondItem="dfv-cd-4ha" secondAttribute="top" constant="90" id="7PN-WZ-3WN"/>
                                     <constraint firstItem="c7F-Ao-ojG" firstAttribute="centerY" secondItem="833-cL-sok" secondAttribute="centerY" id="FQu-eY-iXI"/>
-                                    <constraint firstItem="maM-NA-7zo" firstAttribute="top" secondItem="833-cL-sok" secondAttribute="bottom" constant="68" id="KJ7-rM-pPJ"/>
                                     <constraint firstItem="i1x-RB-Xed" firstAttribute="centerY" secondItem="dhW-UP-9oJ" secondAttribute="centerY" id="PLd-W7-oqR"/>
                                     <constraint firstItem="4Zk-MY-7jI" firstAttribute="centerX" secondItem="dfv-cd-4ha" secondAttribute="centerX" id="SY9-JC-ixD"/>
                                     <constraint firstItem="OoD-Zc-C6M" firstAttribute="leading" secondItem="833-cL-sok" secondAttribute="trailing" constant="5" id="WZN-RC-aQh"/>
@@ -341,9 +324,8 @@
                                     <constraint firstItem="4Zk-MY-7jI" firstAttribute="top" secondItem="GyC-o6-FlH" secondAttribute="bottom" constant="10" id="nVN-gF-pxl"/>
                                     <constraint firstItem="OoD-Zc-C6M" firstAttribute="centerY" secondItem="833-cL-sok" secondAttribute="centerY" id="nsP-f0-vIz"/>
                                     <constraint firstItem="GyC-o6-FlH" firstAttribute="leading" secondItem="dfv-cd-4ha" secondAttribute="leading" constant="20" id="oMq-6O-ft5"/>
-                                    <constraint firstItem="GyC-o6-FlH" firstAttribute="top" secondItem="maM-NA-7zo" secondAttribute="bottom" constant="10" id="ury-bL-M5f"/>
-                                    <constraint firstItem="maM-NA-7zo" firstAttribute="width" secondItem="dfv-cd-4ha" secondAttribute="width" multiplier="0.9" id="vX3-8V-XfH"/>
                                     <constraint firstItem="4Zk-MY-7jI" firstAttribute="width" secondItem="dfv-cd-4ha" secondAttribute="width" multiplier="0.9" id="w3L-BL-PVd"/>
+                                    <constraint firstItem="GyC-o6-FlH" firstAttribute="top" secondItem="833-cL-sok" secondAttribute="bottom" constant="50" id="yyS-da-cjv"/>
                                     <constraint firstItem="h3u-Ai-YDc" firstAttribute="leading" secondItem="OoD-Zc-C6M" secondAttribute="trailing" constant="1" id="z7e-zG-Z1U"/>
                                 </constraints>
                             </scrollView>
@@ -537,7 +519,6 @@
                             <constraint firstItem="LbR-pI-7bd" firstAttribute="trailing" secondItem="c7F-Ao-ojG" secondAttribute="trailing" constant="20" id="HcG-IZ-Vyd"/>
                             <constraint firstItem="LbR-pI-7bd" firstAttribute="bottom" secondItem="BsU-0r-CeC" secondAttribute="bottom" id="Ist-I4-AmQ"/>
                             <constraint firstItem="8lI-vF-MvI" firstAttribute="leading" secondItem="LbR-pI-7bd" secondAttribute="leading" id="Px4-Qw-J1U"/>
-                            <constraint firstItem="maM-NA-7zo" firstAttribute="centerX" secondItem="LbR-pI-7bd" secondAttribute="centerX" id="Shg-Nx-Dos"/>
                             <constraint firstItem="s6e-Xu-Syt" firstAttribute="top" secondItem="LbR-pI-7bd" secondAttribute="top" id="Tmi-bR-X6D"/>
                             <constraint firstItem="dfv-cd-4ha" firstAttribute="centerY" secondItem="LbR-pI-7bd" secondAttribute="centerY" id="Vj1-il-UVa"/>
                             <constraint firstItem="dfv-cd-4ha" firstAttribute="centerX" secondItem="LbR-pI-7bd" secondAttribute="centerX" id="WGe-jh-cjf"/>
@@ -556,7 +537,6 @@
                         <outlet property="_username" destination="i1x-RB-Xed" id="38U-ng-Hxz"/>
                         <outlet property="scrollView" destination="dfv-cd-4ha" id="Lxb-3r-DzI"/>
                         <outlet property="tableViewTransaction" destination="4Zk-MY-7jI" id="phS-Mn-tSq"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="signOutSegue" id="kgU-sL-5eF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cu-f0-5DT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -884,13 +864,34 @@ before using our service</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-NA-7zo">
+                                        <rect key="frame" x="16" y="448" width="288" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2XH-ry-NEX"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onSignOutTapped:" destination="42b-4E-Kaa" eventType="touchUpInside" id="gRh-PN-6zK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="maM-NA-7zo" firstAttribute="width" secondItem="S15-Dz-4fC" secondAttribute="width" multiplier="0.9" id="7uO-32-W3e"/>
                                     <constraint firstItem="3iT-O4-fyW" firstAttribute="width" secondItem="S15-Dz-4fC" secondAttribute="width" multiplier="0.9" id="C5l-Fj-fkL"/>
                                     <constraint firstItem="svE-bV-Ugo" firstAttribute="centerX" secondItem="S15-Dz-4fC" secondAttribute="centerX" id="VT3-1f-xfH"/>
                                     <constraint firstItem="3iT-O4-fyW" firstAttribute="top" secondItem="S15-Dz-4fC" secondAttribute="top" constant="100" id="Xqn-4H-TjU"/>
                                     <constraint firstItem="svE-bV-Ugo" firstAttribute="top" secondItem="3iT-O4-fyW" secondAttribute="bottom" constant="25" id="fpQ-B2-tQp"/>
                                     <constraint firstItem="3iT-O4-fyW" firstAttribute="centerX" secondItem="S15-Dz-4fC" secondAttribute="centerX" id="mz0-lc-WC3"/>
+                                    <constraint firstItem="maM-NA-7zo" firstAttribute="centerX" secondItem="S15-Dz-4fC" secondAttribute="centerX" id="ryH-Qf-CCY"/>
                                     <constraint firstItem="svE-bV-Ugo" firstAttribute="width" secondItem="S15-Dz-4fC" secondAttribute="width" multiplier="0.9" id="ua9-I2-PcH"/>
                                 </constraints>
                             </scrollView>
@@ -1071,6 +1072,7 @@ before using our service</string>
                             <constraint firstItem="gfI-Wz-6tf" firstAttribute="leading" secondItem="CLE-Qw-bGO" secondAttribute="leading" id="E57-cf-bh5"/>
                             <constraint firstItem="BV0-xT-ezs" firstAttribute="top" secondItem="Gct-gM-ORs" secondAttribute="top" id="FsH-BE-BtA"/>
                             <constraint firstAttribute="trailing" secondItem="gfI-Wz-6tf" secondAttribute="trailing" id="KKv-i9-Cpk"/>
+                            <constraint firstItem="PTZ-lP-Dxc" firstAttribute="bottom" secondItem="maM-NA-7zo" secondAttribute="bottom" constant="70" id="MTD-S2-tEc"/>
                             <constraint firstItem="S15-Dz-4fC" firstAttribute="centerY" secondItem="PTZ-lP-Dxc" secondAttribute="centerY" id="SVo-Ba-QcO"/>
                             <constraint firstItem="BV0-xT-ezs" firstAttribute="leading" secondItem="CLE-Qw-bGO" secondAttribute="leading" id="XjP-3o-8gk"/>
                             <constraint firstItem="S15-Dz-4fC" firstAttribute="centerX" secondItem="PTZ-lP-Dxc" secondAttribute="centerX" id="YWp-3m-KTf"/>
@@ -1085,6 +1087,9 @@ before using our service</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PTZ-lP-Dxc"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="signOutSegue" id="IEY-hs-mGy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5r-ON-Tah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1407,6 +1412,6 @@ before using our service</string>
         <segue reference="N40-OP-dZ8"/>
         <segue reference="guC-pm-6hQ"/>
         <segue reference="C2S-1n-MyQ"/>
-        <segue reference="kgU-sL-5eF"/>
+        <segue reference="IEY-hs-mGy"/>
     </inferredMetricsTieBreakers>
 </document>

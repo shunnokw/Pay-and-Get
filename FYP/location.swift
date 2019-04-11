@@ -73,14 +73,7 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func onSignOutTapped(_ sender: Any) {
-        do{
-            try Auth.auth().signOut()
-            performSegue(withIdentifier: "signOutSegue", sender: nil)
-        } catch{
-            print(error)
-        }
-    }
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     

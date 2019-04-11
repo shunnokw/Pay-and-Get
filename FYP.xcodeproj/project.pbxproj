@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F1073A0220DF7D100B29CCB /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F10739F220DF7D100B29CCB /* location.swift */; };
 		0F1073A2220E0A2800B29CCB /* qrcodeScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */; };
+		0F421687225F14DF00CB16BE /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F421686225F14DF00CB16BE /* setting.swift */; };
 		0F450A8221FC2ACC008C2406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450A8121FC2ACC008C2406 /* AppDelegate.swift */; };
 		0F450A8421FC2ACC008C2406 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450A8321FC2ACC008C2406 /* ViewController.swift */; };
 		0F450A8721FC2ACC008C2406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450A8521FC2ACC008C2406 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		0F10739F220DF7D100B29CCB /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 		0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeScan.swift; sourceTree = "<group>"; };
+		0F421686225F14DF00CB16BE /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 		0F450A7E21FC2ACC008C2406 /* FYP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F450A8121FC2ACC008C2406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F450A8321FC2ACC008C2406 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				57EB7711220F2901000BD5DF /* qrcodeGen.swift */,
 				0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */,
 				572F0B40222BBDF10039395B /* reqestPage.swift */,
+				0F421686225F14DF00CB16BE /* setting.swift */,
 				0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */,
 				57119BAA2252713600262AE5 /* topUp.swift */,
 				5717FFB4221005F100329B03 /* TouchFaceId.swift */,
@@ -290,6 +293,7 @@
 				57119BAB2252713600262AE5 /* topUp.swift in Sources */,
 				5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */,
 				572F0B41222BBDF10039395B /* reqestPage.swift in Sources */,
+				0F421687225F14DF00CB16BE /* setting.swift in Sources */,
 				0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,
 				0F1073A0220DF7D100B29CCB /* location.swift in Sources */,
