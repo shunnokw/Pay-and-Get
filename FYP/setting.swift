@@ -38,9 +38,16 @@ class setting: UIViewController {
             .childByAutoId()
         let newTransactionID = newTransactionRef.key
         
+        var amount = 0
+        ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let deposit = snapshot.value as? Int {
+                amount = deposit
+            }
+        })
+        
         let newTransactionData = [
             "transaction_id": newTransactionID ?? -1,
-            "amount": String(topupValue) as NSString,
+            "amount": String(amount) as NSString,
             "payee_id": "Transfer to bank" as NSString,
             "payer_id": "Transfer to bank" as NSString,
             "time": formatter.string(from: date) as NSString
