@@ -67,6 +67,28 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
             topupValue = Int(validInput)!
             topupValue += Int(self._deposit.text!)!
             self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": topupValue])
+            
+            
+                print("Creating transaction record")
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
+                
+                let newTransactionRef = self.ref!
+                    .child("transaction")
+                    .childByAutoId()
+                let newTransactionID = newTransactionRef.key
+                
+                let newTransactionData = [
+                    "transaction_id": newTransactionID ?? -1,
+                    "amount": String(topupValue) as NSString,
+                    "payee_id": "Self top up" as NSString,
+                    "payer_id": "Self top up" as NSString,
+                    "time": formatter.string(from: date) as NSString
+                    ] as [String : Any]
+                newTransactionRef.setValue(newTransactionData)
+            
+            
             self.loadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
@@ -106,6 +128,8 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
             self.refresher.endRefreshing()
         }
     }
+    
+    
     
     func loadData(){
         print("Loading data")

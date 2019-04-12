@@ -27,6 +27,26 @@ class setting: UIViewController {
         ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
         self.ref.child("users").child(uid!).updateChildValues(["deposit": 0])
+        
+        print("Creating transaction record")
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
+        
+        let newTransactionRef = self.ref!
+            .child("transaction")
+            .childByAutoId()
+        let newTransactionID = newTransactionRef.key
+        
+        let newTransactionData = [
+            "transaction_id": newTransactionID ?? -1,
+            "amount": String(topupValue) as NSString,
+            "payee_id": "Transfer to bank" as NSString,
+            "payer_id": "Transfer to bank" as NSString,
+            "time": formatter.string(from: date) as NSString
+            ] as [String : Any]
+        newTransactionRef.setValue(newTransactionData)
+        
         let alertt = UIAlertController(title: "Success", message: "All money transfer to bank", preferredStyle: .alert)
         alertt.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alertt, animated: true, completion: nil)
