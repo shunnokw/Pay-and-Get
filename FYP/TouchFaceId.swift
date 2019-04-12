@@ -42,19 +42,23 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                             print("User authenticated successfully")
                             print("Ready to process payment")
                             
-                            if(self.pay()){
-                                let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
-                                self.createRecord()
-                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
-                                self.present(alert, animated: true, completion: nil)
+                            self.isPaySuccess{ returnValue in
+                                if(returnValue == true){
+                                    self.deSuccess{ returnV in
+                                        let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
+                                        self.createRecord()
+                                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                                }
+                                else{
+                                    let alert3 = UIAlertController(title: "Failed Payment!", message: "Not enough deposit. Please top up", preferredStyle: .alert)
+                                    alert3.addAction(UIAlertAction(title: "OK", style: .default))
+                                    self.present(alert3, animated: true, completion: nil)
+                                }
                             }
-                            else{
-                                let alert3 = UIAlertController(title: "Failed Payment!", message: "Not enough deposit. Please top up", preferredStyle: .alert)
-                                alert3.addAction(UIAlertAction(title: "OK", style: .default))
-                                self.present(alert3, animated: true, completion: nil)
-                            }
-                            
-                        } else {
+                        }
+                        else {
                             // User did not authenticate successfully, look at error and take appropriate action
                             print("Sorry. Authenticate Failed")
                             let alert2 = UIAlertController(title: "Authenticate Failed", message: "Please try again and pay with password", preferredStyle: .alert)
@@ -80,9 +84,12 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             let p = locationManager.location!.coordinate
             let userLocation = CLLocation(latitude: p.latitude, longitude: p.longitude)
             let d = userLocation.distance(from: targetLocation) //meters
-            if(d<=10){ //distance should be under 10 meters
+            print(targetLocation)
+            print(userLocation)
+            print("distance: \(d)")
+            if(d<=100){ //distance should be under 100 meters
                 if(isWithInTimeLimit()){
-                   payment()
+                    payment()
                 }
                 else{
                     print("Time Error")
@@ -103,9 +110,9 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         }
         else{
             print("Location Services Error")
-//            let alertk = UIAlertController(title: "Alert", message: "Location Services Error", preferredStyle: .alert)
-//            alertk.addAction(UIAlertAction(title: "OK", style: .default))
-//            self.present(alertk, animated: true, completion: nil)
+            //            let alertk = UIAlertController(title: "Alert", message: "Location Services Error", preferredStyle: .alert)
+            //            alertk.addAction(UIAlertAction(title: "OK", style: .default))
+            //            self.present(alertk, animated: true, completion: nil)
         }
     }
     
@@ -164,34 +171,37 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             return false
         }
     }
+
+    func deSuccess(completion: @escaping (Bool)->Void){
+        //plus target
+        self.ref.child("users").child(self.name).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+            var returnV = false
+            if let deposit = snapshot.value as? Int{
+                let targetOrigin = deposit
+                print("target origin: \(targetOrigin)")
+                let result2 = targetOrigin + self.amount
+                self.ref.child("users").child(self.name).updateChildValues(["deposit": result2])
+                returnV = true
+            }
+        completion(returnV)
+        })
+    }
     
-    func pay() -> Bool{
-        var origin = 0
-        var targetOrigin = 0
-        
-        ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let deposit = snapshot.value as? Int {
-                origin = deposit
-            }})
-        print("origin: \(origin)")
-        print("amount: \(self.amount)")
-        let result = origin - self.amount
-        if (result >= 0){
-            print("result")
-            //deduct from
-            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": result])
-            
-            //plus target
-            ref.child("users").child(self.name).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let deposit = snapshot.value as? Int {
-                    targetOrigin = deposit
-                }})
-            print("target origin: \(targetOrigin)")
-            let result2 = targetOrigin + self.amount
-            self.ref.child("users").child(self.name).updateChildValues(["deposit": result2])
-            return true
-        }
-        return false
+    func isPaySuccess(completion: @escaping (Bool)->Void){
+        self.ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+            var returnValue = false
+            if let deposit = snapshot.value as? Int{
+                let origin = deposit
+                print("origin: \(origin)")
+                print("amount: \(self.amount)")
+                let result = origin - self.amount
+                if (result >= 0){
+                    //deduct from
+                    self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": result])
+                    returnValue = true
+                }}
+            completion(returnValue)
+        })
     }
     
     func createRecord(){
@@ -201,8 +211,8 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
         
         let newTransactionRef = self.ref!
-                                .child("transaction")
-                                .childByAutoId()
+            .child("transaction")
+            .childByAutoId()
         let newTransactionID = newTransactionRef.key
         
         let newTransactionData = [
@@ -256,7 +266,7 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
-
+    
     public var screenHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
