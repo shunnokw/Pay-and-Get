@@ -153,6 +153,7 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 //reloading the tableview
+                self.tranList = self.tranList.reversed()
                 self.tableViewTransaction.reloadData()
             }
         })
