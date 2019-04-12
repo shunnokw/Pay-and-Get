@@ -11,6 +11,7 @@ import Firebase
 import SwiftyRSA
 import Foundation
 import CoreLocation
+import SystemConfiguration.CaptiveNetwork
 
 class qrcodeGen: UIViewController, CLLocationManagerDelegate{
     
@@ -49,87 +50,101 @@ class qrcodeGen: UIViewController, CLLocationManagerDelegate{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
         let i = locationOfGender()
-        if let genSSID = Network().getWiFiSsid(){
-            let oldString = id! + "," + amount! + "," + formatter.string(from: date) + ","
-            myString = oldString + i + "," + genSSID
+        let genSSID = getNetworkInfos()
+        let oldString = id! + "," + amount! + "," + formatter.string(from: date) + ","
+        if (genSSID.count != 0){
+            myString = oldString + i + "," + genSSID[0].bssid
         }
         else{
-            print("TTT")
-            let alert6 = UIAlertController(title: "Alert", message: "Wifi Error", preferredStyle: .alert)
-            alert6.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert6, animated: true, completion: nil)
+            myString = oldString + i + ",nowifi"
         }
-        
-        
         
         print("myString is: \(myString)")
-        if(myString == ""){
-            print("KKK")
-            let alert5 = UIAlertController(title: "Alert", message: "Cannot generate code", preferredStyle: .alert)
-            alert5.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert5, animated: true, completion: nil)
-            
+        
+        //generate a RSA key pair
+        let keyPair = try! SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+        let privateKey = keyPair.privateKey
+        let publicKey = keyPair.publicKey
+        
+        //Sign data with private key
+        let dat = try! ClearMessage(string: myString, using: .utf8)
+        let realData = myString
+        let signature = try! dat.signed(with: privateKey, digestType: .sha1)
+        //object to string
+        let sign = signature.base64String
+        let PKeyString = try! publicKey.base64String()
+        //string to qr code
+        myString = ("\(realData) \(sign) \(PKeyString)")
+        
+        let data = myString.data(using: String.Encoding.ascii)
+        guard let qrFliter = CIFilter(name: "CIQRCodeGenerator")
+            else {
+                return
         }
-        else{
-            //generate a RSA key pair
-            let keyPair = try! SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
-            let privateKey = keyPair.privateKey
-            let publicKey = keyPair.publicKey
-            
-            //Sign data with private key
-            let dat = try! ClearMessage(string: myString, using: .utf8)
-            let realData = myString
-            let signature = try! dat.signed(with: privateKey, digestType: .sha1)
-            //object to string
-            let sign = signature.base64String
-            let PKeyString = try! publicKey.base64String()
-            //string to qr code
-            myString = ("\(realData) \(sign) \(PKeyString)")
-            
-            let data = myString.data(using: String.Encoding.ascii)
-            guard let qrFliter = CIFilter(name: "CIQRCodeGenerator")
-                else {
-                    return
-            }
-            qrFliter.setValue(data, forKey: "inputMessage")
-            guard let qrImage = qrFliter.outputImage
-                else {
-                    return
-            }
-            
-            //scale up
-            let transform = CGAffineTransform(scaleX: 10, y: 10)
-            let scaledQrImage = qrImage.transformed(by: transform)
-            
-            //invert color
-            guard let colorInvertFilter = CIFilter(name: "CIColorInvert") else {
+        qrFliter.setValue(data, forKey: "inputMessage")
+        guard let qrImage = qrFliter.outputImage
+            else {
                 return
-            }
-            colorInvertFilter.setValue(scaledQrImage, forKey: "inputImage")
-            guard let outputInvertedImage = colorInvertFilter.outputImage else {
-                return
-            }
-            
-            //black to transparent
-            guard let maskToAlphaFilter = CIFilter(name: "CIMaskToAlpha") else {
-                return
-            }
-            maskToAlphaFilter.setValue(outputInvertedImage, forKey: "inputImage")
-            guard let outputCIImage = maskToAlphaFilter.outputImage else {
-                return
-            }
-            
-            //display
-            let context = CIContext()
-            guard let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else {
-                return
-            }
-            qrShow.image = UIImage(cgImage: cgImage)
+        }
+        
+        //scale up
+        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        let scaledQrImage = qrImage.transformed(by: transform)
+        
+        //invert color
+        guard let colorInvertFilter = CIFilter(name: "CIColorInvert") else {
+            return
+        }
+        colorInvertFilter.setValue(scaledQrImage, forKey: "inputImage")
+        guard let outputInvertedImage = colorInvertFilter.outputImage else {
+            return
+        }
+        
+        //black to transparent
+        guard let maskToAlphaFilter = CIFilter(name: "CIMaskToAlpha") else {
+            return
+        }
+        maskToAlphaFilter.setValue(outputInvertedImage, forKey: "inputImage")
+        guard let outputCIImage = maskToAlphaFilter.outputImage else {
+            return
+        }
+        
+        //display
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else {
+            return
+        }
+        qrShow.image = UIImage(cgImage: cgImage)
+    }
+    
+    struct NetworkInfo {
+        public let interface:String
+        public let ssid:String
+        public let bssid:String
+        init(_ interface:String, _ ssid:String,_ bssid:String) {
+            self.interface = interface
+            self.ssid = ssid
+            self.bssid = bssid
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    func getNetworkInfos() -> Array<NetworkInfo> {
+        guard let interfaceNames = CNCopySupportedInterfaces() as? [String] else {
+            return []
+        }
+        let networkInfos:[NetworkInfo] = interfaceNames.compactMap{ name in
+            guard let info = CNCopyCurrentNetworkInfo(name as CFString) as? [String:AnyObject] else {
+                return nil
+            }
+            guard let ssid = info[kCNNetworkInfoKeySSID as String] as? String else {
+                return nil
+            }
+            guard let bssid = info[kCNNetworkInfoKeyBSSID as String] as? String else {
+                return nil
+            }
+            return NetworkInfo(name, ssid,bssid)
+        }
+        return networkInfos
     }
     
     

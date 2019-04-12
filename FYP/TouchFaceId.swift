@@ -10,6 +10,7 @@ import UIKit
 import LocalAuthentication
 import Firebase
 import CoreLocation
+import SystemConfiguration.CaptiveNetwork
 
 class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     
@@ -108,15 +109,45 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
         }
     }
     
-    func isSameAP() -> Bool{
-        guard let bssid = Network().getWiFiSsid() else{
-            let alertW = UIAlertController(title: "Wifi Error", message: "Device may have Wifi issue", preferredStyle: .alert)
-            alertW.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alertW, animated: true, completion: nil)
-            return false
+    struct NetworkInfo {
+        public let interface:String
+        public let ssid:String
+        public let bssid:String
+        init(_ interface:String, _ ssid:String,_ bssid:String) {
+            self.interface = interface
+            self.ssid = ssid
+            self.bssid = bssid
         }
-        if (bssid == targetBSSID){
-            return true
+    }
+    
+    func getNetworkInfos() -> Array<NetworkInfo> {
+        guard let interfaceNames = CNCopySupportedInterfaces() as? [String] else {
+            return []
+        }
+        let networkInfos:[NetworkInfo] = interfaceNames.compactMap{ name in
+            guard let info = CNCopyCurrentNetworkInfo(name as CFString) as? [String:AnyObject] else {
+                return nil
+            }
+            guard let ssid = info[kCNNetworkInfoKeySSID as String] as? String else {
+                return nil
+            }
+            guard let bssid = info[kCNNetworkInfoKeyBSSID as String] as? String else {
+                return nil
+            }
+            return NetworkInfo(name, ssid,bssid)
+        }
+        return networkInfos
+    }
+    
+    func isSameAP() -> Bool{
+        let mybssid = getNetworkInfos()
+        if (mybssid.count != 0){
+            if (mybssid[0].bssid == targetBSSID){
+                return true
+            }
+            else{
+                return false
+            }
         }
         else{
             return false
@@ -137,34 +168,30 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     func pay() -> Bool{
         var origin = 0
         var targetOrigin = 0
-        var finsih = false
-        //deduct from
+        
         ref.child("users").child((Auth.auth().currentUser?.uid)!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
             if let deposit = snapshot.value as? Int {
                 origin = deposit
-                print("origin: \(origin)")
-                print("amount: \(self.amount)")
-                let result = origin - self.amount
-                if (result >= 0){
-                    print("result")
-                    self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": result])
-                    finsih = true
-                }
-            }
-        })
-        if (finsih == false){
-           return false
+            }})
+        print("origin: \(origin)")
+        print("amount: \(self.amount)")
+        let result = origin - self.amount
+        if (result >= 0){
+            print("result")
+            //deduct from
+            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": result])
+            
+            //plus target
+            ref.child("users").child(self.name).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let deposit = snapshot.value as? Int {
+                    targetOrigin = deposit
+                }})
+            print("target origin: \(targetOrigin)")
+            let result2 = targetOrigin + self.amount
+            self.ref.child("users").child(self.name).updateChildValues(["deposit": result2])
+            return true
         }
-        //plus target
-        ref.child("users").child(self.name).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let deposit = snapshot.value as? Int {
-                targetOrigin = deposit
-                print("target origin: \(targetOrigin)")
-                let result2 = targetOrigin + self.amount
-                self.ref.child("users").child(self.name).updateChildValues(["deposit": result2])
-            }
-        })
-        return true
+        return false
     }
     
     func createRecord(){

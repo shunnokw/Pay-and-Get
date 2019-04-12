@@ -23,9 +23,7 @@
 		0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */; };
 		0FFC3051222ECEE4009BAEE8 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */; };
 		0FFC3053222EDA12009BAEE8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3052222EDA12009BAEE8 /* AlertController.swift */; };
-		57119BAB2252713600262AE5 /* topUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57119BAA2252713600262AE5 /* topUp.swift */; };
 		5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5717FFB4221005F100329B03 /* TouchFaceId.swift */; };
-		5728E8492257DB8E001288A5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728E8482257DB8E001288A5 /* Network.swift */; };
 		572F0B41222BBDF10039395B /* reqestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F0B40222BBDF10039395B /* reqestPage.swift */; };
 		57EB7712220F2901000BD5DF /* qrcodeGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB7711220F2901000BD5DF /* qrcodeGen.swift */; };
 		57FA7E02223121C500E7B24F /* EnableLocaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FA7E01223121C500E7B24F /* EnableLocaVC.swift */; };
@@ -53,9 +51,7 @@
 		0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0FFC3052222EDA12009BAEE8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57119BAA2252713600262AE5 /* topUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topUp.swift; sourceTree = "<group>"; };
 		5717FFB4221005F100329B03 /* TouchFaceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceId.swift; sourceTree = "<group>"; };
-		5728E8482257DB8E001288A5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		572F0B40222BBDF10039395B /* reqestPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reqestPage.swift; sourceTree = "<group>"; };
 		57EB7711220F2901000BD5DF /* qrcodeGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeGen.swift; sourceTree = "<group>"; };
 		57FA7E01223121C500E7B24F /* EnableLocaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocaVC.swift; sourceTree = "<group>"; };
@@ -110,13 +106,11 @@
 				57FA7E01223121C500E7B24F /* EnableLocaVC.swift */,
 				0F10739F220DF7D100B29CCB /* location.swift */,
 				0F5AEC78222E613A0019FE8F /* LoginPage.swift */,
-				5728E8482257DB8E001288A5 /* Network.swift */,
 				57EB7711220F2901000BD5DF /* qrcodeGen.swift */,
 				0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */,
 				572F0B40222BBDF10039395B /* reqestPage.swift */,
 				0F421686225F14DF00CB16BE /* setting.swift */,
 				0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */,
-				57119BAA2252713600262AE5 /* topUp.swift */,
 				5717FFB4221005F100329B03 /* TouchFaceId.swift */,
 				0F6A71A622586AC700C12308 /* VCTableViewCell.swift */,
 				0F450A8321FC2ACC008C2406 /* ViewController.swift */,
@@ -287,10 +281,8 @@
 			files = (
 				0F450A8421FC2ACC008C2406 /* ViewController.swift in Sources */,
 				0F5AEC79222E613A0019FE8F /* LoginPage.swift in Sources */,
-				5728E8492257DB8E001288A5 /* Network.swift in Sources */,
 				0F1073A2220E0A2800B29CCB /* qrcodeScan.swift in Sources */,
 				57EB7712220F2901000BD5DF /* qrcodeGen.swift in Sources */,
-				57119BAB2252713600262AE5 /* topUp.swift in Sources */,
 				5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */,
 				572F0B41222BBDF10039395B /* reqestPage.swift in Sources */,
 				0F421687225F14DF00CB16BE /* setting.swift in Sources */,
