@@ -152,13 +152,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-bh-KQS">
-                                                    <rect key="frame" x="218" y="11.5" width="60" height="21"/>
+                                                    <rect key="frame" x="852" y="11.5" width="60" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEA-UQ-4ED">
-                                                    <rect key="frame" x="119.5" y="11.5" width="49" height="21"/>
+                                                    <rect key="frame" x="436.5" y="11.5" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOr-u1-Qdf">
-                                                            <rect key="frame" x="218" y="11.5" width="60" height="21"/>
+                                                            <rect key="frame" x="852" y="11.5" width="60" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -197,13 +197,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac4-kM-xe6">
-                                                            <rect key="frame" x="128.5" y="16" width="31" height="12"/>
+                                                            <rect key="frame" x="445.5" y="16" width="31" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqX-XE-4J8">
-                                                            <rect key="frame" x="206" y="11.5" width="11" height="21"/>
+                                                            <rect key="frame" x="840" y="11.5" width="11" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -778,10 +778,10 @@ before using our service</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BME-U2-swI">
-                                <rect key="frame" x="32" y="456" width="256" height="30"/>
+                                <rect key="frame" x="32" y="508" width="256" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="N9o-Im-O0E"/>
+                                    <constraint firstAttribute="height" constant="30" id="e07-8O-4uK"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Done">
@@ -802,9 +802,8 @@ before using our service</string>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="centerX" secondItem="jHB-EE-hFF" secondAttribute="centerX" id="1Xs-A7-mx9"/>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="height" secondItem="bap-mk-2cU" secondAttribute="height" multiplier="0.5" id="Ft7-w9-CX1"/>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="top" secondItem="DeL-8I-lc0" secondAttribute="bottom" constant="20" id="LVQ-ID-ejC"/>
-                            <constraint firstItem="jHB-EE-hFF" firstAttribute="bottom" secondItem="BME-U2-swI" secondAttribute="bottom" constant="82" id="XNs-9m-2ll"/>
+                            <constraint firstItem="jHB-EE-hFF" firstAttribute="bottom" secondItem="BME-U2-swI" secondAttribute="bottom" constant="30" id="XNs-9m-2ll"/>
                             <constraint firstItem="BME-U2-swI" firstAttribute="centerX" secondItem="jHB-EE-hFF" secondAttribute="centerX" id="aLQ-qh-eN7"/>
-                            <constraint firstItem="BME-U2-swI" firstAttribute="top" secondItem="yoe-Pg-GsR" secondAttribute="bottom" constant="20" id="lf6-Jf-val"/>
                             <constraint firstItem="DeL-8I-lc0" firstAttribute="centerX" secondItem="jHB-EE-hFF" secondAttribute="centerX" id="ngn-f8-Kog"/>
                             <constraint firstItem="BME-U2-swI" firstAttribute="width" secondItem="bap-mk-2cU" secondAttribute="width" multiplier="0.8" id="pGw-XC-kiQ"/>
                             <constraint firstItem="yoe-Pg-GsR" firstAttribute="width" secondItem="bap-mk-2cU" secondAttribute="height" multiplier="1:2" id="pdn-Mm-f6f"/>
@@ -821,10 +820,10 @@ before using our service</string>
             </objects>
             <point key="canvasLocation" x="2348" y="992"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting-->
         <scene sceneID="lOM-uv-KfY">
             <objects>
-                <viewController id="AwT-Ul-txL" sceneMemberID="viewController">
+                <viewController id="AwT-Ul-txL" customClass="setting" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CLE-Qw-bGO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -863,6 +862,9 @@ before using our service</string>
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tranTapped:" destination="AwT-Ul-txL" eventType="touchUpInside" id="c5R-Zc-YRa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-NA-7zo">
                                         <rect key="frame" x="16" y="448" width="288" height="30"/>
@@ -880,6 +882,7 @@ before using our service</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="onSignOutTapped:" destination="AwT-Ul-txL" eventType="touchUpInside" id="a0p-3k-icl"/>
                                             <action selector="onSignOutTapped:" destination="42b-4E-Kaa" eventType="touchUpInside" id="gRh-PN-6zK"/>
                                         </connections>
                                     </button>
@@ -1251,7 +1254,7 @@ before using our service</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hth-Ee-ZXe">
-                                <rect key="frame" x="93" y="513" width="135" height="13.5"/>
+                                <rect key="frame" x="92.5" y="513" width="135" height="13.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="afK-b8-RlT"/>
                                 </constraints>
@@ -1282,7 +1285,7 @@ before using our service</string>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38L-14-Nzq">
-                                <rect key="frame" x="140" y="532" width="40" height="26"/>
+                                <rect key="frame" x="139.5" y="532" width="40" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="9sd-Ym-Tox"/>
                                 </constraints>
@@ -1409,7 +1412,6 @@ before using our service</string>
         <image name="setting-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N40-OP-dZ8"/>
         <segue reference="guC-pm-6hQ"/>
         <segue reference="C2S-1n-MyQ"/>
         <segue reference="IEY-hs-mGy"/>

@@ -109,7 +109,6 @@
 				0F450A8121FC2ACC008C2406 /* AppDelegate.swift */,
 				57FA7E01223121C500E7B24F /* EnableLocaVC.swift */,
 				0F10739F220DF7D100B29CCB /* location.swift */,
-				0F6A71A622586AC700C12308 /* VCTableViewCell.swift */,
 				0F5AEC78222E613A0019FE8F /* LoginPage.swift */,
 				5728E8482257DB8E001288A5 /* Network.swift */,
 				57EB7711220F2901000BD5DF /* qrcodeGen.swift */,
@@ -119,6 +118,7 @@
 				0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */,
 				57119BAA2252713600262AE5 /* topUp.swift */,
 				5717FFB4221005F100329B03 /* TouchFaceId.swift */,
+				0F6A71A622586AC700C12308 /* VCTableViewCell.swift */,
 				0F450A8321FC2ACC008C2406 /* ViewController.swift */,
 			);
 			path = FYP;

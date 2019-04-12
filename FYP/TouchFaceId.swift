@@ -25,59 +25,63 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     var time = Date()
     let uid = Auth.auth().currentUser?.uid
     
-    @IBAction func payButton(_ sender: UIButton) {
+    func payment(){
         let myContext = LAContext()
         let myLocalizedReasonString = "Please approve the payment"
-        
+        print("User authenticating")
+        var authError: NSError?
+        print("Checking iOS Version")
+        if #available(iOS 8.0, *) {
+            print("Checking evaluation policy")
+            if myContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
+                myContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { success, evaluateError in
+                    DispatchQueue.main.async{
+                        print("Dispatch")
+                        if success {
+                            print("User authenticated successfully")
+                            print("Ready to process payment")
+                            
+                            if(self.pay()){
+                                let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
+                                self.createRecord()
+                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else{
+                                let alert3 = UIAlertController(title: "Failed Payment!", message: "Not enough deposit. Please top up", preferredStyle: .alert)
+                                alert3.addAction(UIAlertAction(title: "OK", style: .default))
+                                self.present(alert3, animated: true, completion: nil)
+                            }
+                            
+                        } else {
+                            // User did not authenticate successfully, look at error and take appropriate action
+                            print("Sorry. Authenticate Failed")
+                            let alert2 = UIAlertController(title: "Authenticate Failed", message: "Please try again and pay with password", preferredStyle: .alert)
+                            alert2.addAction(UIAlertAction(title: "OK", style: .default))
+                            self.present(alert2, animated: true, completion: nil)
+                        }
+                    }
+                }
+            } else {
+                // Could not evaluate policy; look at authError and present an appropriate message to user
+                let alert2 = UIAlertController(title: "Alert", message: "Sorry. Authenticate Failed. Please try again and pay with your device password", preferredStyle: .alert)
+                alert2.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert2, animated: true, completion: nil)
+            }
+        } else {
+            // Fallback on earlier versions
+            print("This feature is not supported on your device.")
+        }
+    }
+    
+    @IBAction func payButton(_ sender: UIButton) {
         if(checkLocation()){
             let p = locationManager.location!.coordinate
             let userLocation = CLLocation(latitude: p.latitude, longitude: p.longitude)
             let d = userLocation.distance(from: targetLocation) //meters
-            if(d<=10 || isSameAP()){ //distance should be under 10 meters
+            if(d<=10){ //distance should be under 10 meters
                 if(isWithInTimeLimit()){
-                    print("User authenticating")
-                    var authError: NSError?
-                    print("Checking iOS Version")
-                    if #available(iOS 8.0, *) {
-                        print("Checking evaluation policy")
-                        if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
-                                DispatchQueue.main.async{
-                                    print("Dispatch")
-                                    if success {
-                                        print("User authenticated successfully")
-                                        print("Ready to process payment")
-                                        
-                                        if(self.pay()){
-                                            let alert = UIAlertController(title: "Alert", message: "Payment Success!", preferredStyle: .alert)
-                                            self.createRecord()
-                                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{action in self.performSegue(withIdentifier: "paymentDone", sender: nil)}))
-                                            self.present(alert, animated: true, completion: nil)
-                                        }
-                                        else{
-                                            let alert3 = UIAlertController(title: "Failed Payment!", message: "You have not enough deposit", preferredStyle: .alert)
-                                            self.present(alert3, animated: true, completion: nil)
-                                        }
-                                        
-                                    } else {
-                                        // User did not authenticate successfully, look at error and take appropriate action
-                                        print("Sorry. Authenticate Failed")
-                                        let alert2 = UIAlertController(title: "Alert", message: "Sorry. Authenticate Failed. Please try again and pay with your device password", preferredStyle: .alert)
-                                        alert2.addAction(UIAlertAction(title: "OK", style: .default))
-                                        self.present(alert2, animated: true, completion: nil)
-                                    }
-                                }
-                            }
-                        } else {
-                            // Could not evaluate policy; look at authError and present an appropriate message to user
-                            let alert2 = UIAlertController(title: "Alert", message: "Sorry. Authenticate Failed. Please try again and pay with your device password", preferredStyle: .alert)
-                            alert2.addAction(UIAlertAction(title: "OK", style: .default))
-                            self.present(alert2, animated: true, completion: nil)
-                        }
-                    } else {
-                        // Fallback on earlier versions
-                        print("This feature is not supported on your device.")
-                    }
+                   payment()
                 }
                 else{
                     print("Time Error")
@@ -85,6 +89,9 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
                     alertt.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(alertt, animated: true, completion: nil)
                 }
+            }
+            else if(isSameAP()){
+                payment()
             }
             else{
                 print("Distance Error")
@@ -102,7 +109,12 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
     }
     
     func isSameAP() -> Bool{
-        let bssid = Network().getWiFiSsid()
+        guard let bssid = Network().getWiFiSsid() else{
+            let alertW = UIAlertController(title: "Wifi Error", message: "Device may have Wifi issue", preferredStyle: .alert)
+            alertW.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertW, animated: true, completion: nil)
+            return false
+        }
         if (bssid == targetBSSID){
             return true
         }
@@ -131,14 +143,16 @@ class TouchFaceId: UIViewController, CLLocationManagerDelegate{
             if let deposit = snapshot.value as? Int {
                 origin = deposit
                 print("origin: \(origin)")
+                print("amount: \(self.amount)")
                 let result = origin - self.amount
                 if (result >= 0){
+                    print("result")
                     self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": result])
                     finsih = true
                 }
             }
         })
-        if (finsih == true){
+        if (finsih == false){
            return false
         }
         //plus target

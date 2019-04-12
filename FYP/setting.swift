@@ -19,6 +19,15 @@ class setting: UIViewController {
             print(error)
         }
     }
+    
+    @IBAction func tranTapped(_ sender: Any) {
+        let userID = Auth.auth().currentUser?.uid
+        var ref: DatabaseReference!
+        ref.child("users").child(userID!).updateChildValues(["deposit": 0])
+        let alertt = UIAlertController(title: "Success", message: "All money transfer to bank", preferredStyle: .alert)
+        alertt.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alertt, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

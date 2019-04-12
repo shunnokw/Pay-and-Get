@@ -18,6 +18,9 @@ class reqestPage: UIViewController, CLLocationManagerDelegate{
     @IBAction func clickedOnRequest(_ sender: Any) {
         guard let validInput = collectInput.text, !validInput.isEmpty else{
             print("No input")
+            let alertL = UIAlertController(title: "Alert", message: "No input", preferredStyle: .alert)
+            alertL.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertL, animated: true, completion: nil)
             return
         }
         guard validInput.isNumeric else{
