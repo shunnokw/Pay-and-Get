@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B4x-vL-PTP">
-                                <rect key="frame" x="32" y="294" width="256" height="30"/>
+                                <rect key="frame" x="32" y="278.5" width="256" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-cP-YdN">
-                                <rect key="frame" x="32" y="246" width="256" height="30"/>
+                                <rect key="frame" x="32" y="226.5" width="256" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
@@ -38,18 +33,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="wuW-xP-M0T" kind="show" id="5aq-dE-16I"/>
+                                    <segue destination="wuW-xP-M0T" kind="presentation" modalPresentationStyle="fullScreen" id="5aq-dE-16I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-dm-4K8">
-                                <rect key="frame" x="0.0" y="20" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOS-ku-cZa">
-                                <rect key="frame" x="32" y="388" width="256" height="30"/>
+                                <rect key="frame" x="32" y="376.5" width="256" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Login">
@@ -65,7 +59,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2019-02-08 at 8.42.06 PM" translatesAutoresizingMaskIntoConstraints="NO" id="0Wh-jM-Jhr">
-                                <rect key="frame" x="-40" y="49" width="400" height="146"/>
+                                <rect key="frame" x="-40" y="29" width="400" height="146.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Wh-jM-Jhr" secondAttribute="height" multiplier="227:83" id="56N-ws-bCz"/>
                                     <constraint firstAttribute="width" constant="400" id="wRC-3V-Y9y"/>
@@ -77,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2u-Ab-Y8p">
-                                <rect key="frame" x="202" y="332" width="86" height="24"/>
+                                <rect key="frame" x="202" y="320.5" width="86" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="Forgot password?"/>
                             </button>
@@ -109,10 +103,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nkB-5t-Acx"/>
                     <connections>
                         <outlet property="_email" destination="cmH-cP-YdN" id="Alt-A1-NRI"/>
                         <outlet property="_password" destination="B4x-vL-PTP" id="Oxf-Ik-VhL"/>
-                        <segue destination="42b-4E-Kaa" kind="show" identifier="signInSegue" id="j3h-7f-eFS"/>
+                        <segue destination="42b-4E-Kaa" kind="presentation" identifier="signInSegue" modalPresentationStyle="fullScreen" id="j3h-7f-eFS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -247,7 +242,7 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1x-RB-Xed">
-                                        <rect key="frame" x="125" y="93" width="180" height="16"/>
+                                        <rect key="frame" x="125" y="92.5" width="180" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="jtT-vY-MnU"/>
                                         </constraints>
@@ -357,7 +352,7 @@
                                             <constraint firstAttribute="height" constant="50" id="nAO-Sb-LUf"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="AwT-Ul-txL" kind="show" animates="NO" id="N40-OP-dZ8"/>
+                                            <segue destination="AwT-Ul-txL" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="N40-OP-dZ8"/>
                                         </connections>
                                     </button>
                                     <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_user_profile_icon_1108089" translatesAutoresizingMaskIntoConstraints="NO" id="Luf-G4-9KP">
@@ -394,11 +389,11 @@
                                 </constraints>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-iQ-VUR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="0.96999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-Xu-Syt">
-                                <rect key="frame" x="0.0" y="20" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saM-0V-5Hn">
                                         <rect key="frame" x="260" y="7.5" width="50" height="50"/>
@@ -418,7 +413,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="S1c-NP-fdp" kind="show" id="9vg-df-X9W"/>
+                                            <segue destination="S1c-NP-fdp" kind="presentation" modalPresentationStyle="fullScreen" id="9vg-df-X9W"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnu-jm-3fK">
@@ -458,7 +453,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="CdR-a1-jbl" kind="show" id="guC-pm-6hQ"/>
+                                            <segue destination="CdR-a1-jbl" kind="presentation" modalPresentationStyle="fullScreen" id="guC-pm-6hQ"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="31-512" translatesAutoresizingMaskIntoConstraints="NO" id="EUi-wN-k7L">
@@ -533,6 +528,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LbR-pI-7bd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gEJ-Ny-1zA"/>
                     <connections>
                         <outlet property="_deposit" destination="h3u-Ai-YDc" id="3Cq-vY-yDq"/>
                         <outlet property="_username" destination="i1x-RB-Xed" id="38U-ng-Hxz"/>
@@ -553,13 +549,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Succeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXF-EG-N9N">
-                                <rect key="frame" x="33.5" y="276" width="253" height="36"/>
+                                <rect key="frame" x="33.5" y="266" width="253" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HY-kY-zJV">
-                                <rect key="frame" x="16" y="342" width="288" height="30"/>
+                                <rect key="frame" x="16" y="332" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -570,7 +566,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="42b-4E-Kaa" kind="show" id="eMj-P7-UEJ"/>
+                                    <segue destination="42b-4E-Kaa" kind="presentation" modalPresentationStyle="fullScreen" id="eMj-P7-UEJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -584,6 +580,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oYm-tS-okd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ESd-AX-d6M"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zfn-Gp-IxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -598,7 +595,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwf-qL-xxJ">
-                                <rect key="frame" x="18" y="211" width="284" height="48"/>
+                                <rect key="frame" x="18" y="201" width="284" height="48"/>
                                 <string key="text">Please enable location service
 before using our service</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -606,7 +603,7 @@ before using our service</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWn-Zh-TIb">
-                                <rect key="frame" x="16" y="279" width="288" height="30"/>
+                                <rect key="frame" x="16" y="269" width="288" height="30"/>
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Enable Location Service">
@@ -622,7 +619,7 @@ before using our service</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZq-AJ-yfb">
-                                <rect key="frame" x="16" y="329" width="288" height="30"/>
+                                <rect key="frame" x="16" y="319" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="I have already enable location services">
@@ -681,7 +678,7 @@ before using our service</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are going to pay:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGz-eI-a9M">
-                                <rect key="frame" x="43" y="80" width="234" height="29"/>
+                                <rect key="frame" x="43" y="60" width="234" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -705,11 +702,11 @@ before using our service</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="CdR-a1-jbl" kind="show" id="bua-tI-Gn5"/>
+                                    <segue destination="CdR-a1-jbl" kind="presentation" modalPresentationStyle="fullScreen" id="bua-tI-Gn5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0D4-UB-kWC">
-                                <rect key="frame" x="129.5" y="129" width="61" height="41"/>
+                                <rect key="frame" x="129.5" y="109" width="61" height="41"/>
                                 <string key="text">Loading
 ...</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -717,7 +714,7 @@ before using our service</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPl-Nj-Yls">
-                                <rect key="frame" x="0.0" y="267.5" width="320" height="53"/>
+                                <rect key="frame" x="0.0" y="257.5" width="320" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="UPl-Nj-Yls" secondAttribute="height" multiplier="286:47" id="YZn-BP-FOi"/>
                                 </constraints>
@@ -751,10 +748,11 @@ before using our service</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fzo-od-2p6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xjh-Cj-HQc"/>
                     <connections>
                         <outlet property="showAmount" destination="UPl-Nj-Yls" id="H2a-ch-rOQ"/>
                         <outlet property="showName" destination="0D4-UB-kWC" id="7sl-dP-KDn"/>
-                        <segue destination="QAW-4l-HGC" kind="show" identifier="paymentDone" id="rfg-nS-0Wt"/>
+                        <segue destination="QAW-4l-HGC" kind="presentation" identifier="paymentDone" modalPresentationStyle="fullScreen" id="rfg-nS-0Wt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBJ-NW-UhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -770,10 +768,10 @@ before using our service</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yoe-Pg-GsR">
-                                <rect key="frame" x="18" y="152" width="284" height="284"/>
+                                <rect key="frame" x="18" y="142" width="284" height="284"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan the code to pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-8I-lc0">
-                                <rect key="frame" x="29" y="108" width="262" height="24"/>
+                                <rect key="frame" x="29" y="98" width="262" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -794,7 +792,7 @@ before using our service</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="42b-4E-Kaa" kind="show" id="fQg-mP-8PP"/>
+                                    <segue destination="42b-4E-Kaa" kind="presentation" modalPresentationStyle="fullScreen" id="fQg-mP-8PP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -868,7 +866,7 @@ before using our service</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-NA-7zo">
-                                        <rect key="frame" x="16" y="448" width="288" height="30"/>
+                                        <rect key="frame" x="16" y="468" width="288" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2XH-ry-NEX"/>
@@ -913,7 +911,7 @@ before using our service</string>
                                             <constraint firstAttribute="width" constant="50" id="wnM-hR-nIw"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="42b-4E-Kaa" kind="show" animates="NO" id="C2S-1n-MyQ"/>
+                                            <segue destination="42b-4E-Kaa" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="C2S-1n-MyQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgz-i8-LmL">
@@ -958,11 +956,11 @@ before using our service</string>
                                 </constraints>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gfI-Wz-6tf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="0.96999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjM-TP-Ulj">
-                                <rect key="frame" x="0.0" y="20" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCc-mI-ta5">
                                         <rect key="frame" x="260" y="7.5" width="50" height="50"/>
@@ -1091,8 +1089,9 @@ before using our service</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PTZ-lP-Dxc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uK5-yZ-woQ"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="signOutSegue" id="IEY-hs-mGy"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signOutSegue" modalPresentationStyle="fullScreen" id="IEY-hs-mGy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5r-ON-Tah" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1108,13 +1107,12 @@ before using our service</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of money to collect: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsK-k4-VT6">
-                                <rect key="frame" x="25.5" y="120" width="269" height="24"/>
+                                <rect key="frame" x="25.5" y="100" width="269" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN6-Z6-GJc">
-                                <rect key="frame" x="112" y="169" width="96" height="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="112" y="149" width="96" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
@@ -1131,7 +1129,7 @@ before using our service</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="42b-4E-Kaa" kind="show" id="VBD-BP-NkD"/>
+                                    <segue destination="42b-4E-Kaa" kind="presentation" modalPresentationStyle="fullScreen" id="VBD-BP-NkD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Wf-zM-Rms">
@@ -1167,9 +1165,10 @@ before using our service</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QuN-6u-y1a"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Pxc-w2-XFN"/>
                     <connections>
                         <outlet property="collectInput" destination="AN6-Z6-GJc" id="1bB-en-II2"/>
-                        <segue destination="vn3-rO-2pO" kind="show" identifier="requestSegue" id="pBA-Ne-Cfi"/>
+                        <segue destination="vn3-rO-2pO" kind="presentation" identifier="requestSegue" modalPresentationStyle="fullScreen" id="pBA-Ne-Cfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GQ-He-gNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1197,7 +1196,7 @@ before using our service</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="42b-4E-Kaa" kind="show" id="Hc9-Tt-OKg"/>
+                                    <segue destination="42b-4E-Kaa" kind="presentation" modalPresentationStyle="fullScreen" id="Hc9-Tt-OKg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1209,9 +1208,10 @@ before using our service</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ve-z2-u9r"/>
                     </view>
+                    <navigationItem key="navigationItem" id="f9c-ut-QmQ"/>
                     <connections>
                         <outlet property="back" destination="SpH-nI-Ky4" id="629-sI-uLP"/>
-                        <segue destination="s8v-8L-ztg" kind="show" identifier="paySegue" id="USj-c8-eA3"/>
+                        <segue destination="s8v-8L-ztg" kind="presentation" identifier="paySegue" modalPresentationStyle="fullScreen" id="USj-c8-eA3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g43-bh-bxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1227,13 +1227,13 @@ before using our service</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0v5-Fj-S7U">
-                                <rect key="frame" x="16" y="176" width="288" height="30"/>
+                                <rect key="frame" x="16" y="164" width="288" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in all information below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-Qm-Vat">
-                                <rect key="frame" x="24" y="45" width="272" height="20.5"/>
+                                <rect key="frame" x="24" y="25" width="272" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1268,32 +1268,32 @@ before using our service</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank account to recieve money (Only number)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-Dh-eX1">
-                                <rect key="frame" x="16" y="136" width="288" height="30"/>
+                                <rect key="frame" x="16" y="120" width="288" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KqK-4o-YQf">
-                                <rect key="frame" x="16" y="216" width="288" height="30"/>
+                                <rect key="frame" x="16" y="208" width="288" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="o4L-Q4-BCi">
-                                <rect key="frame" x="16" y="96" width="288" height="30"/>
+                                <rect key="frame" x="16" y="76" width="288" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38L-14-Nzq">
-                                <rect key="frame" x="139.5" y="532" width="40" height="26"/>
+                                <rect key="frame" x="140" y="532" width="40" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="9sd-Ym-Tox"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="4Sa-NQ-mKr"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="4Sa-NQ-mKr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1328,7 +1328,7 @@ before using our service</string>
                         <outlet property="_bankAcc" destination="dp7-Dh-eX1" id="9od-jd-tIA"/>
                         <outlet property="_email" destination="o4L-Q4-BCi" id="Abl-b3-l0F"/>
                         <outlet property="_password" destination="0v5-Fj-S7U" id="2g7-NX-rCZ"/>
-                        <segue destination="zgK-Yk-n6Z" kind="show" identifier="signUpSegue" id="DlW-vh-Lrz"/>
+                        <segue destination="zgK-Yk-n6Z" kind="presentation" identifier="signUpSegue" modalPresentationStyle="fullScreen" id="DlW-vh-Lrz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4t-z5-VxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1351,19 +1351,19 @@ before using our service</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLp-2W-f87">
-                                <rect key="frame" x="125.5" y="237.5" width="69" height="36"/>
+                                <rect key="frame" x="125.5" y="227.5" width="69" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can now login with your account." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7X-HI-ZGh">
-                                <rect key="frame" x="18" y="283.5" width="284" height="21"/>
+                                <rect key="frame" x="18" y="273.5" width="284" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nO-AS-bTI">
-                                <rect key="frame" x="16" y="344.5" width="288" height="30"/>
+                                <rect key="frame" x="16" y="334.5" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Jzu-FX-Wyj"/>
@@ -1378,7 +1378,7 @@ before using our service</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="42b-4E-Kaa" kind="show" id="Gkd-k7-eai"/>
+                                    <segue destination="42b-4E-Kaa" kind="presentation" modalPresentationStyle="fullScreen" id="Gkd-k7-eai"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1398,6 +1398,7 @@ before using our service</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pnF-dt-ZSS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Svt-x1-5oC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXc-Y7-jxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1413,9 +1414,8 @@ before using our service</string>
         <image name="setting-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9vg-df-X9W"/>
         <segue reference="guC-pm-6hQ"/>
-        <segue reference="VBD-BP-NkD"/>
+        <segue reference="j3h-7f-eFS"/>
         <segue reference="IEY-hs-mGy"/>
     </inferredMetricsTieBreakers>
 </document>
