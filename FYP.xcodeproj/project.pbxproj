@@ -3,58 +3,60 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1073A0220DF7D100B29CCB /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F10739F220DF7D100B29CCB /* location.swift */; };
-		0F1073A2220E0A2800B29CCB /* qrcodeScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */; };
-		0F421687225F14DF00CB16BE /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F421686225F14DF00CB16BE /* setting.swift */; };
-		0F450A8221FC2ACC008C2406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450A8121FC2ACC008C2406 /* AppDelegate.swift */; };
-		0F450A8421FC2ACC008C2406 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450A8321FC2ACC008C2406 /* ViewController.swift */; };
-		0F450A8721FC2ACC008C2406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450A8521FC2ACC008C2406 /* Main.storyboard */; };
 		0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F450A8821FC2ACC008C2406 /* FYP.xcdatamodeld */; };
 		0F450A8C21FC2ACD008C2406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F450A8B21FC2ACD008C2406 /* Assets.xcassets */; };
-		0F450A8F21FC2ACD008C2406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450A8D21FC2ACD008C2406 /* LaunchScreen.storyboard */; };
-		0F5AEC79222E613A0019FE8F /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AEC78222E613A0019FE8F /* LoginPage.swift */; };
 		0F6A71A52258578E00C12308 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6A71A42258578E00C12308 /* ExternalAccessory.framework */; };
-		0F6A71A722586AC700C12308 /* VCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A71A622586AC700C12308 /* VCTableViewCell.swift */; };
 		0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A71A822586E5000C12308 /* TransactionModel.swift */; };
 		0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */; };
-		0FFC3051222ECEE4009BAEE8 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */; };
-		0FFC3053222EDA12009BAEE8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC3052222EDA12009BAEE8 /* AlertController.swift */; };
-		5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5717FFB4221005F100329B03 /* TouchFaceId.swift */; };
-		572F0B41222BBDF10039395B /* reqestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F0B40222BBDF10039395B /* reqestPage.swift */; };
-		57EB7712220F2901000BD5DF /* qrcodeGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB7711220F2901000BD5DF /* qrcodeGen.swift */; };
-		57FA7E02223121C500E7B24F /* EnableLocaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FA7E01223121C500E7B24F /* EnableLocaVC.swift */; };
+		5775F1DA23B59F0700B5CE60 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1CE23B59F0700B5CE60 /* location.swift */; };
+		5775F1DB23B59F0700B5CE60 /* VCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */; };
+		5775F1DC23B59F0700B5CE60 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D023B59F0700B5CE60 /* setting.swift */; };
+		5775F1DD23B59F0700B5CE60 /* qrcodeScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */; };
+		5775F1DE23B59F0700B5CE60 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D223B59F0700B5CE60 /* AlertController.swift */; };
+		5775F1DF23B59F0700B5CE60 /* TouchFaceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D323B59F0700B5CE60 /* TouchFaceId.swift */; };
+		5775F1E023B59F0700B5CE60 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D423B59F0700B5CE60 /* SignUpVC.swift */; };
+		5775F1E123B59F0700B5CE60 /* reqestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D523B59F0700B5CE60 /* reqestPage.swift */; };
+		5775F1E223B59F0700B5CE60 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D623B59F0700B5CE60 /* LoginPage.swift */; };
+		5775F1E323B59F0700B5CE60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D723B59F0700B5CE60 /* AppDelegate.swift */; };
+		5775F1E423B59F0700B5CE60 /* EnableLocaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D823B59F0700B5CE60 /* EnableLocaVC.swift */; };
+		5775F1E523B59F0700B5CE60 /* qrcodeGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D923B59F0700B5CE60 /* qrcodeGen.swift */; };
+		5775F1EB23B59F4C00B5CE60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775F1E723B59F4C00B5CE60 /* LaunchScreen.storyboard */; };
+		5775F1EC23B59F4C00B5CE60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775F1E923B59F4C00B5CE60 /* Main.storyboard */; };
+		5775F1F123B59F7300B5CE60 /* topUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EE23B59F7300B5CE60 /* topUp.swift */; };
+		5775F1F223B59F7300B5CE60 /* transactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */; };
 		B4D3D4157ACB7839F3D600F8 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F10739F220DF7D100B29CCB /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
-		0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeScan.swift; sourceTree = "<group>"; };
-		0F421686225F14DF00CB16BE /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 		0F450A7E21FC2ACC008C2406 /* FYP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F450A8121FC2ACC008C2406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F450A8321FC2ACC008C2406 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0F450A8621FC2ACC008C2406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F450A8921FC2ACC008C2406 /* FYP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FYP.xcdatamodel; sourceTree = "<group>"; };
 		0F450A8B21FC2ACD008C2406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0F450A8E21FC2ACD008C2406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F450A9021FC2ACD008C2406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F5AEC74222E5C120019FE8F /* FYP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FYP.entitlements; sourceTree = "<group>"; };
-		0F5AEC78222E613A0019FE8F /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		0F6A71A42258578E00C12308 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		0F6A71A622586AC700C12308 /* VCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTableViewCell.swift; sourceTree = "<group>"; };
 		0F6A71A822586E5000C12308 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		0FFC3052222EDA12009BAEE8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5717FFB4221005F100329B03 /* TouchFaceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceId.swift; sourceTree = "<group>"; };
-		572F0B40222BBDF10039395B /* reqestPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reqestPage.swift; sourceTree = "<group>"; };
-		57EB7711220F2901000BD5DF /* qrcodeGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrcodeGen.swift; sourceTree = "<group>"; };
-		57FA7E01223121C500E7B24F /* EnableLocaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocaVC.swift; sourceTree = "<group>"; };
+		5775F1CE23B59F0700B5CE60 /* location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
+		5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTableViewCell.swift; sourceTree = "<group>"; };
+		5775F1D023B59F0700B5CE60 /* setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
+		5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrcodeScan.swift; sourceTree = "<group>"; };
+		5775F1D223B59F0700B5CE60 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		5775F1D323B59F0700B5CE60 /* TouchFaceId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchFaceId.swift; sourceTree = "<group>"; };
+		5775F1D423B59F0700B5CE60 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		5775F1D523B59F0700B5CE60 /* reqestPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = reqestPage.swift; sourceTree = "<group>"; };
+		5775F1D623B59F0700B5CE60 /* LoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		5775F1D723B59F0700B5CE60 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5775F1D823B59F0700B5CE60 /* EnableLocaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableLocaVC.swift; sourceTree = "<group>"; };
+		5775F1D923B59F0700B5CE60 /* qrcodeGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrcodeGen.swift; sourceTree = "<group>"; };
+		5775F1E823B59F4C00B5CE60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5775F1EA23B59F4C00B5CE60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5775F1EE23B59F7300B5CE60 /* topUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topUp.swift; sourceTree = "<group>"; };
+		5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactionDetail.swift; sourceTree = "<group>"; };
 		678A3D777F4D3D8A846CE6E0 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
 		6CC05197BB4421685485908E /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,27 +95,14 @@
 		0F450A8021FC2ACC008C2406 /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				5775F1E623B59F4C00B5CE60 /* View */,
+				5775F1CD23B59F0700B5CE60 /* Controller */,
 				0F6A71AA2258763500C12308 /* Model */,
 				0F450A9021FC2ACD008C2406 /* Info.plist */,
 				0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */,
 				0F5AEC74222E5C120019FE8F /* FYP.entitlements */,
 				0F450A8821FC2ACC008C2406 /* FYP.xcdatamodeld */,
-				0F450A8D21FC2ACD008C2406 /* LaunchScreen.storyboard */,
-				0F450A8521FC2ACC008C2406 /* Main.storyboard */,
 				0F450A8B21FC2ACD008C2406 /* Assets.xcassets */,
-				0FFC3052222EDA12009BAEE8 /* AlertController.swift */,
-				0F450A8121FC2ACC008C2406 /* AppDelegate.swift */,
-				57FA7E01223121C500E7B24F /* EnableLocaVC.swift */,
-				0F10739F220DF7D100B29CCB /* location.swift */,
-				0F5AEC78222E613A0019FE8F /* LoginPage.swift */,
-				57EB7711220F2901000BD5DF /* qrcodeGen.swift */,
-				0F1073A1220E0A2800B29CCB /* qrcodeScan.swift */,
-				572F0B40222BBDF10039395B /* reqestPage.swift */,
-				0F421686225F14DF00CB16BE /* setting.swift */,
-				0FFC3050222ECEE4009BAEE8 /* SignUpVC.swift */,
-				5717FFB4221005F100329B03 /* TouchFaceId.swift */,
-				0F6A71A622586AC700C12308 /* VCTableViewCell.swift */,
-				0F450A8321FC2ACC008C2406 /* ViewController.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -131,8 +120,38 @@
 			isa = PBXGroup;
 			children = (
 				0F6A71A822586E5000C12308 /* TransactionModel.swift */,
+				5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5775F1CD23B59F0700B5CE60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5775F1CE23B59F0700B5CE60 /* location.swift */,
+				5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */,
+				5775F1D023B59F0700B5CE60 /* setting.swift */,
+				5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */,
+				5775F1D223B59F0700B5CE60 /* AlertController.swift */,
+				5775F1D323B59F0700B5CE60 /* TouchFaceId.swift */,
+				5775F1D423B59F0700B5CE60 /* SignUpVC.swift */,
+				5775F1D523B59F0700B5CE60 /* reqestPage.swift */,
+				5775F1D623B59F0700B5CE60 /* LoginPage.swift */,
+				5775F1D723B59F0700B5CE60 /* AppDelegate.swift */,
+				5775F1D823B59F0700B5CE60 /* EnableLocaVC.swift */,
+				5775F1D923B59F0700B5CE60 /* qrcodeGen.swift */,
+				5775F1EE23B59F7300B5CE60 /* topUp.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5775F1E623B59F4C00B5CE60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5775F1E723B59F4C00B5CE60 /* LaunchScreen.storyboard */,
+				5775F1E923B59F4C00B5CE60 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B8BB42A3A7C404CFC9253A84 /* Pods */ = {
@@ -218,10 +237,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F450A8F21FC2ACD008C2406 /* LaunchScreen.storyboard in Resources */,
+				5775F1EB23B59F4C00B5CE60 /* LaunchScreen.storyboard in Resources */,
 				0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */,
 				0F450A8C21FC2ACD008C2406 /* Assets.xcassets in Resources */,
-				0F450A8721FC2ACC008C2406 /* Main.storyboard in Resources */,
+				5775F1EC23B59F4C00B5CE60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,21 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FYP/Pods-FYP-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FYP/Pods-FYP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FYP/Pods-FYP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -279,41 +289,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F450A8421FC2ACC008C2406 /* ViewController.swift in Sources */,
-				0F5AEC79222E613A0019FE8F /* LoginPage.swift in Sources */,
-				0F1073A2220E0A2800B29CCB /* qrcodeScan.swift in Sources */,
-				57EB7712220F2901000BD5DF /* qrcodeGen.swift in Sources */,
-				5717FFB5221005F100329B03 /* TouchFaceId.swift in Sources */,
-				572F0B41222BBDF10039395B /* reqestPage.swift in Sources */,
-				0F421687225F14DF00CB16BE /* setting.swift in Sources */,
+				5775F1E323B59F0700B5CE60 /* AppDelegate.swift in Sources */,
+				5775F1DD23B59F0700B5CE60 /* qrcodeScan.swift in Sources */,
+				5775F1E023B59F0700B5CE60 /* SignUpVC.swift in Sources */,
+				5775F1E123B59F0700B5CE60 /* reqestPage.swift in Sources */,
+				5775F1DB23B59F0700B5CE60 /* VCTableViewCell.swift in Sources */,
+				5775F1F223B59F7300B5CE60 /* transactionDetail.swift in Sources */,
+				5775F1DC23B59F0700B5CE60 /* setting.swift in Sources */,
+				5775F1E223B59F0700B5CE60 /* LoginPage.swift in Sources */,
+				5775F1DF23B59F0700B5CE60 /* TouchFaceId.swift in Sources */,
+				5775F1E423B59F0700B5CE60 /* EnableLocaVC.swift in Sources */,
+				5775F1DA23B59F0700B5CE60 /* location.swift in Sources */,
+				5775F1DE23B59F0700B5CE60 /* AlertController.swift in Sources */,
 				0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */,
+				5775F1E523B59F0700B5CE60 /* qrcodeGen.swift in Sources */,
+				5775F1F123B59F7300B5CE60 /* topUp.swift in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,
-				0F1073A0220DF7D100B29CCB /* location.swift in Sources */,
-				57FA7E02223121C500E7B24F /* EnableLocaVC.swift in Sources */,
-				0FFC3053222EDA12009BAEE8 /* AlertController.swift in Sources */,
-				0F6A71A722586AC700C12308 /* VCTableViewCell.swift in Sources */,
-				0FFC3051222ECEE4009BAEE8 /* SignUpVC.swift in Sources */,
-				0F450A8221FC2ACC008C2406 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0F450A8521FC2ACC008C2406 /* Main.storyboard */ = {
+		5775F1E723B59F4C00B5CE60 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0F450A8621FC2ACC008C2406 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0F450A8D21FC2ACD008C2406 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F450A8E21FC2ACD008C2406 /* Base */,
+				5775F1E823B59F4C00B5CE60 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5775F1E923B59F4C00B5CE60 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5775F1EA23B59F4C00B5CE60 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -440,16 +451,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5K2R6NQH72;
 				INFOPLIST_FILE = FYP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP.jsnwong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = company2;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,16 +473,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5K2R6NQH72;
 				INFOPLIST_FILE = FYP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP.jsnwong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = company2;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
