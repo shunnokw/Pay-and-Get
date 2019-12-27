@@ -28,6 +28,8 @@
 		5775F1EC23B59F4C00B5CE60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775F1E923B59F4C00B5CE60 /* Main.storyboard */; };
 		5775F1F123B59F7300B5CE60 /* topUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EE23B59F7300B5CE60 /* topUp.swift */; };
 		5775F1F223B59F7300B5CE60 /* transactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */; };
+		5775F1F723B603A100B5CE60 /* NetworkCall.h in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1F623B603A100B5CE60 /* NetworkCall.h */; };
+		5775F1F923B603F500B5CE60 /* NetworkCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1F823B603F500B5CE60 /* NetworkCall.m */; };
 		B4D3D4157ACB7839F3D600F8 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,10 @@
 		5775F1EA23B59F4C00B5CE60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5775F1EE23B59F7300B5CE60 /* topUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topUp.swift; sourceTree = "<group>"; };
 		5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactionDetail.swift; sourceTree = "<group>"; };
+		5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FYP-Bridging-Header.h"; sourceTree = "<group>"; };
+		5775F1F623B603A100B5CE60 /* NetworkCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkCall.h; path = FYP/NetworkCall.h; sourceTree = SOURCE_ROOT; };
+		5775F1F823B603F500B5CE60 /* NetworkCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCall.m; sourceTree = "<group>"; };
+		5775F1FA23B6042C00B5CE60 /* NetworkCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCall.h; sourceTree = "<group>"; };
 		678A3D777F4D3D8A846CE6E0 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
 		6CC05197BB4421685485908E /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,9 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				5775F1CE23B59F0700B5CE60 /* location.swift */,
+				5775F1F623B603A100B5CE60 /* NetworkCall.h */,
 				5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */,
 				5775F1D023B59F0700B5CE60 /* setting.swift */,
 				5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */,
+				5775F1F823B603F500B5CE60 /* NetworkCall.m */,
+				5775F1FA23B6042C00B5CE60 /* NetworkCall.h */,
 				5775F1D223B59F0700B5CE60 /* AlertController.swift */,
 				5775F1D323B59F0700B5CE60 /* TouchFaceId.swift */,
 				5775F1D423B59F0700B5CE60 /* SignUpVC.swift */,
@@ -141,6 +150,7 @@
 				5775F1D823B59F0700B5CE60 /* EnableLocaVC.swift */,
 				5775F1D923B59F0700B5CE60 /* qrcodeGen.swift */,
 				5775F1EE23B59F7300B5CE60 /* topUp.swift */,
+				5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +207,7 @@
 				TargetAttributes = {
 					0F450A7D21FC2ACC008C2406 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1130;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
 								enabled = 1;
@@ -303,8 +314,10 @@
 				5775F1DE23B59F0700B5CE60 /* AlertController.swift in Sources */,
 				0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */,
 				5775F1E523B59F0700B5CE60 /* qrcodeGen.swift in Sources */,
+				5775F1F723B603A100B5CE60 /* NetworkCall.h in Sources */,
 				5775F1F123B59F7300B5CE60 /* topUp.swift in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,
+				5775F1F923B603F500B5CE60 /* NetworkCall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +462,7 @@
 			baseConfigurationReference = 6CC05197BB4421685485908E /* Pods-FYP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -461,6 +475,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = company2;
+				SWIFT_OBJC_BRIDGING_HEADER = "FYP/Controller/FYP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -471,6 +487,7 @@
 			baseConfigurationReference = 678A3D777F4D3D8A846CE6E0 /* Pods-FYP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -483,6 +500,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = company2;
+				SWIFT_OBJC_BRIDGING_HEADER = "FYP/Controller/FYP-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
