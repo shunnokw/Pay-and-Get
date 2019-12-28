@@ -111,6 +111,9 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         loadData()
         
+        let objectNetworkCall: NetworkCall = NetworkCall()
+        objectNetworkCall.downloadJson()
+        
         if #available(iOS 10.0, *){
             scrollView.refreshControl = refresher
             refresher.bounds.origin.y -= 70
