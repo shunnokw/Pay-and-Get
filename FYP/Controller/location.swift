@@ -111,6 +111,7 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         loadData()
         
+        ///  Download data from network JSON file
         let objectNetworkCall: NetworkCall = NetworkCall()
         objectNetworkCall.downloadJson()
         
