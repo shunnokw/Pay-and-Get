@@ -7,6 +7,9 @@
 //
 
 #import "NetworkCall.h"
+#import "Api.h"
+
+/// Getting data from network Json and parse them into api object
 
 @implementation NetworkCall 
 
@@ -18,8 +21,19 @@
         NSLog(@"Finished fetching");
         
         NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"DummyString: %@", dummyString);
+        NSLog(@"Result: %@", dummyString);
         
+        NSError *err;
+        NSData *returnedData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingAllowFragments error: &err];
+        if (err) {
+            NSLog(@"Failed parsing: ", err);
+            return;
+        }
+
+        if ([returnedData isKindOfClass: [NSDictionary class]]) {
+            NSDictionary *apiDict = (NSDictionary *)returnedData;
+            NSLog(apiDict[@"appTitle"]);
+        }
     }] resume];
 }
 
