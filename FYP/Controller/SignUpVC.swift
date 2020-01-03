@@ -17,6 +17,10 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var _password: UITextField!
     @IBOutlet weak var _bankAcc: UITextField!
     var ref: DatabaseReference!
+    
+    override func viewDidLoad() {
+        self.hideKeyboardWhenTappedAround()
+    }
 
     @IBAction func onSignUpTapped(_ sender: Any) {
         guard let email = _email.text,

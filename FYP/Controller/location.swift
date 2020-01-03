@@ -98,38 +98,49 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     @IBOutlet weak var scrollView: UIScrollView!
+
+/// Stop using pull to refresh due to new UI design
     
-    lazy var refresher : UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = .gray
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh")
-        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
-        return refreshControl
-    }()
+//    lazy var refresher : UIRefreshControl = {
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.tintColor = .gray
+//        refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh")
+//        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+//        return refreshControl
+//    }()
+//
     
+    @IBOutlet weak var topupButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        
+        topupButton.layer.cornerRadius = topupButton.bounds.size.width / 2
+        topupButton.clipsToBounds = true
+
         ///  Download data from network JSON file
         let objectNetworkCall: NetworkCall = NetworkCall()
         objectNetworkCall.downloadJson()
-        
-        if #available(iOS 10.0, *){
-            scrollView.refreshControl = refresher
-            refresher.bounds.origin.y -= 70
-        } else{
-            scrollView.addSubview(refresher)
-            refresher.bounds.origin.y -= 70
-        }
+
+//        if #available(iOS 10.0, *){
+//            scrollView.refreshControl = refresher
+//            refresher.bounds.origin.y -= 70
+//        } else{
+//            scrollView.addSubview(refresher)
+//            refresher.bounds.origin.y -= 70
+//        }
+    }
+
+    @IBAction func refreshBtnOnClick(_ sender: Any) {
+        didPullToRefresh()
     }
     
     @objc func didPullToRefresh() {
         print("Refershing")
+        tableViewTransaction.isHidden = true
         let deadline = DispatchTime.now() + .milliseconds(700)
         DispatchQueue.main.asyncAfter(deadline: deadline){
             self.loadData()
-            self.refresher.endRefreshing()
+            self.tableViewTransaction.isHidden = false
         }
     }
     

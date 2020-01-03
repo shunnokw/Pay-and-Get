@@ -12,7 +12,7 @@
 		0F6A71A52258578E00C12308 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6A71A42258578E00C12308 /* ExternalAccessory.framework */; };
 		0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A71A822586E5000C12308 /* TransactionModel.swift */; };
 		0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */; };
-		5775F1DA23B59F0700B5CE60 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1CE23B59F0700B5CE60 /* location.swift */; };
+		5727D16123BFACF30051EF04 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D16023BFACF30051EF04 /* location.swift */; };
 		5775F1DB23B59F0700B5CE60 /* VCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */; };
 		5775F1DC23B59F0700B5CE60 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D023B59F0700B5CE60 /* setting.swift */; };
 		5775F1DD23B59F0700B5CE60 /* qrcodeScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */; };
@@ -28,7 +28,6 @@
 		5775F1EC23B59F4C00B5CE60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775F1E923B59F4C00B5CE60 /* Main.storyboard */; };
 		5775F1F123B59F7300B5CE60 /* topUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EE23B59F7300B5CE60 /* topUp.swift */; };
 		5775F1F223B59F7300B5CE60 /* transactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */; };
-		5775F1F723B603A100B5CE60 /* NetworkCall.h in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1F623B603A100B5CE60 /* NetworkCall.h */; };
 		5775F1F923B603F500B5CE60 /* NetworkCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1F823B603F500B5CE60 /* NetworkCall.m */; };
 		579B9FAD23BBB07600D53881 /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 579B9FAC23BBB07600D53881 /* Api.m */; };
 		B4D3D4157ACB7839F3D600F8 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */; };
@@ -44,7 +43,7 @@
 		0F6A71A822586E5000C12308 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5775F1CE23B59F0700B5CE60 /* location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
+		5727D16023BFACF30051EF04 /* location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 		5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTableViewCell.swift; sourceTree = "<group>"; };
 		5775F1D023B59F0700B5CE60 /* setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 		5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrcodeScan.swift; sourceTree = "<group>"; };
@@ -61,7 +60,6 @@
 		5775F1EE23B59F7300B5CE60 /* topUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topUp.swift; sourceTree = "<group>"; };
 		5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactionDetail.swift; sourceTree = "<group>"; };
 		5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FYP-Bridging-Header.h"; sourceTree = "<group>"; };
-		5775F1F623B603A100B5CE60 /* NetworkCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkCall.h; path = FYP/NetworkCall.h; sourceTree = SOURCE_ROOT; };
 		5775F1F823B603F500B5CE60 /* NetworkCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCall.m; sourceTree = "<group>"; };
 		5775F1FA23B6042C00B5CE60 /* NetworkCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCall.h; sourceTree = "<group>"; };
 		579B9FAB23BBB07600D53881 /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
@@ -104,6 +102,7 @@
 		0F450A8021FC2ACC008C2406 /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				5727D15F23BFA4260051EF04 /* Network */,
 				5775F1E623B59F4C00B5CE60 /* View */,
 				5775F1CD23B59F0700B5CE60 /* Controller */,
 				0F6A71AA2258763500C12308 /* Model */,
@@ -128,34 +127,40 @@
 		0F6A71AA2258763500C12308 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				579B9FAB23BBB07600D53881 /* Api.h */,
+				579B9FAC23BBB07600D53881 /* Api.m */,
 				0F6A71A822586E5000C12308 /* TransactionModel.swift */,
 				5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5727D15F23BFA4260051EF04 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5775F1F823B603F500B5CE60 /* NetworkCall.m */,
+				5775F1FA23B6042C00B5CE60 /* NetworkCall.h */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		5775F1CD23B59F0700B5CE60 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5775F1CE23B59F0700B5CE60 /* location.swift */,
-				5775F1F623B603A100B5CE60 /* NetworkCall.h */,
-				5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */,
+				5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */,
+				5775F1D623B59F0700B5CE60 /* LoginPage.swift */,
+				5775F1D423B59F0700B5CE60 /* SignUpVC.swift */,
+				5727D16023BFACF30051EF04 /* location.swift */,
 				5775F1D023B59F0700B5CE60 /* setting.swift */,
-				5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */,
-				5775F1F823B603F500B5CE60 /* NetworkCall.m */,
-				5775F1FA23B6042C00B5CE60 /* NetworkCall.h */,
+				5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */,
 				5775F1D223B59F0700B5CE60 /* AlertController.swift */,
 				5775F1D323B59F0700B5CE60 /* TouchFaceId.swift */,
-				5775F1D423B59F0700B5CE60 /* SignUpVC.swift */,
 				5775F1D523B59F0700B5CE60 /* reqestPage.swift */,
-				5775F1D623B59F0700B5CE60 /* LoginPage.swift */,
 				5775F1D723B59F0700B5CE60 /* AppDelegate.swift */,
 				5775F1D823B59F0700B5CE60 /* EnableLocaVC.swift */,
+				5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */,
 				5775F1D923B59F0700B5CE60 /* qrcodeGen.swift */,
 				5775F1EE23B59F7300B5CE60 /* topUp.swift */,
-				5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */,
-				579B9FAB23BBB07600D53881 /* Api.h */,
-				579B9FAC23BBB07600D53881 /* Api.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -315,11 +320,10 @@
 				5775F1E223B59F0700B5CE60 /* LoginPage.swift in Sources */,
 				5775F1DF23B59F0700B5CE60 /* TouchFaceId.swift in Sources */,
 				5775F1E423B59F0700B5CE60 /* EnableLocaVC.swift in Sources */,
-				5775F1DA23B59F0700B5CE60 /* location.swift in Sources */,
 				5775F1DE23B59F0700B5CE60 /* AlertController.swift in Sources */,
 				0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */,
+				5727D16123BFACF30051EF04 /* location.swift in Sources */,
 				5775F1E523B59F0700B5CE60 /* qrcodeGen.swift in Sources */,
-				5775F1F723B603A100B5CE60 /* NetworkCall.h in Sources */,
 				579B9FAD23BBB07600D53881 /* Api.m in Sources */,
 				5775F1F123B59F7300B5CE60 /* topUp.swift in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,

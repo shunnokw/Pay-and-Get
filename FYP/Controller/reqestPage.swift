@@ -23,10 +23,24 @@ class reqestPage: UIViewController, CLLocationManagerDelegate{
             self.present(alertL, animated: true, completion: nil)
             return
         }
-        guard validInput.isNumeric else{
+        
+        /// Check is number or not
+        guard validInput.isNumeric else {
             print("Not Number")
+            let alertL = UIAlertController(title: "Alert", message: "Please only input number", preferredStyle: .alert)
+            alertL.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertL, animated: true, completion: nil)
             return
         }
+        
+        guard Int(validInput)! <= 100000 else {
+            print("100000 is the max value to collect")
+            let alertL = UIAlertController(title: "Alert", message: "100000 is the max amount to collect", preferredStyle: .alert)
+            alertL.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertL, animated: true, completion: nil)
+            return
+        }
+        
         if(checkLocation()){
             self.performSegue(withIdentifier: "requestSegue", sender: nil)
         }

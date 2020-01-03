@@ -6,13 +6,16 @@ target 'FYP' do
   use_frameworks!
 
   # Pods for FYP
-pod 'Firebase/Core'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
-pod 'Firebase/Analytics'
-pod 'Firebase/Messaging'
-
-pod 'SwiftyRSA'
+  
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  
+  # Encryption Library
+  pod 'SwiftyRSA'
 
 
 end
