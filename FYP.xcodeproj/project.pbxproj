@@ -30,8 +30,19 @@
 		5775F1F223B59F7300B5CE60 /* transactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */; };
 		5775F1F923B603F500B5CE60 /* NetworkCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1F823B603F500B5CE60 /* NetworkCall.m */; };
 		579B9FAD23BBB07600D53881 /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 579B9FAC23BBB07600D53881 /* Api.m */; };
+		57FBE94923E1AD5100C6B3A9 /* PAG_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FBE94823E1AD5100C6B3A9 /* PAG_Tests.swift */; };
 		B4D3D4157ACB7839F3D600F8 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57FBE94B23E1AD5100C6B3A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F450A7621FC2ACC008C2406 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F450A7D21FC2ACC008C2406;
+			remoteInfo = FYP;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0F450A7E21FC2ACC008C2406 /* FYP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +55,8 @@
 		0FEB2EB4222EA2AC0098A04C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5727D16023BFACF30051EF04 /* location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
+		576BFA6B23E41A26006E62A1 /* DatastoreType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatastoreType.h; sourceTree = "<group>"; };
+		576BFA6C23E41B7B006E62A1 /* AuthenticationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticationType.h; sourceTree = "<group>"; };
 		5775F1CF23B59F0700B5CE60 /* VCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTableViewCell.swift; sourceTree = "<group>"; };
 		5775F1D023B59F0700B5CE60 /* setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 		5775F1D123B59F0700B5CE60 /* qrcodeScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrcodeScan.swift; sourceTree = "<group>"; };
@@ -64,6 +77,9 @@
 		5775F1FA23B6042C00B5CE60 /* NetworkCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCall.h; sourceTree = "<group>"; };
 		579B9FAB23BBB07600D53881 /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		579B9FAC23BBB07600D53881 /* Api.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
+		57FBE94623E1AD5100C6B3A9 /* PAG_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PAG_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57FBE94823E1AD5100C6B3A9 /* PAG_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAG_Tests.swift; sourceTree = "<group>"; };
+		57FBE94A23E1AD5100C6B3A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		678A3D777F4D3D8A846CE6E0 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
 		6CC05197BB4421685485908E /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +94,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57FBE94323E1AD5100C6B3A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				0F450A8021FC2ACC008C2406 /* FYP */,
+				57FBE94723E1AD5100C6B3A9 /* PAG_Tests */,
 				0F450A7F21FC2ACC008C2406 /* Products */,
 				0F5AEC75222E5C570019FE8F /* Frameworks */,
 				B8BB42A3A7C404CFC9253A84 /* Pods */,
@@ -95,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				0F450A7E21FC2ACC008C2406 /* FYP.app */,
+				57FBE94623E1AD5100C6B3A9 /* PAG_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +127,7 @@
 		0F450A8021FC2ACC008C2406 /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				576BFA6A23E419F7006E62A1 /* Protocol */,
 				5727D15F23BFA4260051EF04 /* Network */,
 				5775F1E623B59F4C00B5CE60 /* View */,
 				5775F1CD23B59F0700B5CE60 /* Controller */,
@@ -144,6 +170,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		576BFA6A23E419F7006E62A1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				576BFA6B23E41A26006E62A1 /* DatastoreType.h */,
+				576BFA6C23E41B7B006E62A1 /* AuthenticationType.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		5775F1CD23B59F0700B5CE60 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +207,15 @@
 				5775F1E923B59F4C00B5CE60 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		57FBE94723E1AD5100C6B3A9 /* PAG_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				57FBE94823E1AD5100C6B3A9 /* PAG_Tests.swift */,
+				57FBE94A23E1AD5100C6B3A9 /* Info.plist */,
+			);
+			path = PAG_Tests;
 			sourceTree = "<group>";
 		};
 		B8BB42A3A7C404CFC9253A84 /* Pods */ = {
@@ -205,13 +249,31 @@
 			productReference = 0F450A7E21FC2ACC008C2406 /* FYP.app */;
 			productType = "com.apple.product-type.application";
 		};
+		57FBE94523E1AD5100C6B3A9 /* PAG_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57FBE94F23E1AD5100C6B3A9 /* Build configuration list for PBXNativeTarget "PAG_Tests" */;
+			buildPhases = (
+				57FBE94223E1AD5100C6B3A9 /* Sources */,
+				57FBE94323E1AD5100C6B3A9 /* Frameworks */,
+				57FBE94423E1AD5100C6B3A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57FBE94C23E1AD5100C6B3A9 /* PBXTargetDependency */,
+			);
+			name = PAG_Tests;
+			productName = PAG_Tests;
+			productReference = 57FBE94623E1AD5100C6B3A9 /* PAG_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0F450A7621FC2ACC008C2406 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Jason Wong";
 				TargetAttributes = {
@@ -233,6 +295,10 @@
 							};
 						};
 					};
+					57FBE94523E1AD5100C6B3A9 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 0F450A7D21FC2ACC008C2406;
+					};
 				};
 			};
 			buildConfigurationList = 0F450A7921FC2ACC008C2406 /* Build configuration list for PBXProject "FYP" */;
@@ -249,6 +315,7 @@
 			projectRoot = "";
 			targets = (
 				0F450A7D21FC2ACC008C2406 /* FYP */,
+				57FBE94523E1AD5100C6B3A9 /* PAG_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +329,13 @@
 				0FEB2EB6222EA3810098A04C /* GoogleService-Info.plist in Resources */,
 				0F450A8C21FC2ACD008C2406 /* Assets.xcassets in Resources */,
 				5775F1EC23B59F4C00B5CE60 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57FBE94423E1AD5100C6B3A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +405,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57FBE94223E1AD5100C6B3A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57FBE94923E1AD5100C6B3A9 /* PAG_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57FBE94C23E1AD5100C6B3A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F450A7D21FC2ACC008C2406 /* FYP */;
+			targetProxy = 57FBE94B23E1AD5100C6B3A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5775F1E723B59F4C00B5CE60 /* LaunchScreen.storyboard */ = {
@@ -520,6 +610,51 @@
 			};
 			name = Release;
 		};
+		57FBE94D23E1AD5100C6B3A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5K2R6NQH72;
+				INFOPLIST_FILE = PAG_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "jw.PAG-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FYP.app/FYP";
+			};
+			name = Debug;
+		};
+		57FBE94E23E1AD5100C6B3A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5K2R6NQH72;
+				INFOPLIST_FILE = PAG_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "jw.PAG-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FYP.app/FYP";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -537,6 +672,15 @@
 			buildConfigurations = (
 				0F450A9421FC2ACD008C2406 /* Debug */,
 				0F450A9521FC2ACD008C2406 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57FBE94F23E1AD5100C6B3A9 /* Build configuration list for PBXNativeTarget "PAG_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57FBE94D23E1AD5100C6B3A9 /* Debug */,
+				57FBE94E23E1AD5100C6B3A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
