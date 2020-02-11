@@ -1,18 +1,19 @@
 //
-//  PAG_Tests.swift
-//  PAG_Tests
+//  FYPTests.swift
+//  FYPTests
 //
-//  Created by Jason Wong on 29/1/2020.
+//  Created by Jason Wong on 4/2/2020.
 //  Copyright © 2020 Jason Wong. All rights reserved.
 //
 
 import XCTest
+@testable import FYP
 
-
-class PAG_Tests: XCTestCase {
+class FYPTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDown() {

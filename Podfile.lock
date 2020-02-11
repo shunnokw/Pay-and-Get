@@ -1,4 +1,6 @@
 PODS:
+  - Firebase (5.17.0):
+    - Firebase/Core (= 5.17.0)
   - Firebase/Analytics (5.17.0):
     - Firebase/Core
   - Firebase/Auth (5.17.0):
@@ -85,6 +87,7 @@ PODS:
   - SwiftyRSA/ObjC (1.5.0)
 
 DEPENDENCIES:
+  - Firebase
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
@@ -129,6 +132,6 @@ SPEC CHECKSUMS:
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: 0a65864e0cc03f0e65a024c945525e7274a993e8
+PODFILE CHECKSUM: 351480c01b61d5035b948427a36ff02b3ac5a890
 
-COCOAPODS: 1.9.0.beta.2
+COCOAPODS: 1.8.4

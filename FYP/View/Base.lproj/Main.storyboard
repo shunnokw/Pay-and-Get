@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -402,7 +401,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="47105252_10214044686290911_7396532814469922816_n" translatesAutoresizingMaskIntoConstraints="NO" id="cvO-vb-jlq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_user_profile_icon_1108089" translatesAutoresizingMaskIntoConstraints="NO" id="cvO-vb-jlq">
                                         <rect key="frame" x="15" y="13" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="F1X-Ud-Smc"/>
@@ -485,7 +484,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.98408633469999995" green="0.82923740150000003" blue="0.015841562300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="s6e-Xu-Syt" firstAttribute="trailing" secondItem="LbR-pI-7bd" secondAttribute="trailing" id="1Hw-Rx-JvZ"/>
                             <constraint firstItem="BsU-0r-CeC" firstAttribute="trailing" secondItem="LbR-pI-7bd" secondAttribute="trailing" id="6rW-Q8-Ed5"/>
@@ -961,7 +960,7 @@ before using our service</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="47105252_10214044686290911_7396532814469922816_n" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-WO-Sdd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_user_profile_icon_1108089" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-WO-Sdd">
                                         <rect key="frame" x="15" y="13" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ecL-tu-k1L"/>
@@ -1377,16 +1376,14 @@ before using our service</string>
     </scenes>
     <resources>
         <image name="31-512" width="512" height="512"/>
-        <image name="47105252_10214044686290911_7396532814469922816_n" width="259" height="269"/>
         <image name="E1-512" width="512" height="512"/>
         <image name="Screen Shot 2019-02-08 at 8.42.06 PM" width="272" height="281"/>
         <image name="_user_profile_icon_1108089" width="512" height="512"/>
         <image name="setting-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9vg-df-X9W"/>
         <segue reference="guC-pm-6hQ"/>
-        <segue reference="fQg-mP-8PP"/>
+        <segue reference="C2S-1n-MyQ"/>
         <segue reference="IEY-hs-mGy"/>
     </inferredMetricsTieBreakers>
 </document>

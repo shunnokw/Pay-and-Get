@@ -7,11 +7,14 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginPage: UIViewController {
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
+    @IBOutlet weak var loginCardView: UIView!
+    
+    let firebaseService = FirebaseService()
+    
     @IBAction func didClickLogin(_ sender: Any) {
         guard let email = _email.text,
         email != "",
@@ -21,16 +24,15 @@ class LoginPage: UIViewController {
                 AlertController.showAlert(self, title: "Missing Info", message: "Please fill in all information")
                 return
         }
-        Auth.auth().signIn(withEmail: email, password: password, completion: {(user,error) in
-            guard error == nil else{
-                AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
-                return
+        
+        firebaseService.login(email: email, password: password) {
+            loginSuccess in
+            if loginSuccess {
+                self.performSegue(withIdentifier: "signInSegue", sender: nil)
+            } else {
+                print("Login failed")
             }
-            //guard let user = user else { return }
-            //print(user.user.email ?? "Missing Email")
-            
-            self.performSegue(withIdentifier: "signInSegue", sender: nil)
-        })
+        }
     }
 //    override var preferredStatusBarStyle: UIStatusBarStyle {
 //        return .lightContent
@@ -38,11 +40,10 @@ class LoginPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
+        firebaseService.autoLogin() {
+            alreadyLogin in
+            if alreadyLogin {
                 self.performSegue(withIdentifier: "signInSegue", sender: nil)
-            } else {
-                // No user is signed in.
             }
         }
         self.hideKeyboardWhenTappedAround()

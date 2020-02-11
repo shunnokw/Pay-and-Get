@@ -8,14 +8,12 @@
 
 import Foundation
 import UIKit
-import FirebaseDatabase
-import Firebase
 
 class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var _username: UILabel!
     @IBOutlet weak var _deposit: UILabel!
     @IBOutlet weak var tableViewTransaction: UITableView!
-    var ref: DatabaseReference!
+    let firebaseService = FirebaseService()
     var tranList = [TransactionModel]()
     let cellSpacingHeight: CGFloat = 5
     
@@ -66,28 +64,8 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
             }
             topupValue = Int(validInput)!
             topupValue += Int(self._deposit.text!)!
-            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["deposit": topupValue])
             
-            
-                print("Creating transaction record")
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
-                
-                let newTransactionRef = self.ref!
-                    .child("transaction")
-                    .childByAutoId()
-                let newTransactionID = newTransactionRef.key
-                
-                let newTransactionData = [
-                    "transaction_id": newTransactionID ?? -1,
-                    "amount": String(topupValue) as NSString,
-                    "payee_id": "Self top up" as NSString,
-                    "payer_id": "Self top up" as NSString,
-                    "time": formatter.string(from: date) as NSString
-                    ] as [String : Any]
-                newTransactionRef.setValue(newTransactionData)
-            
+            self.firebaseService.topUp(topupValue: topupValue)
             
             self.loadData()
         }))
@@ -117,7 +95,7 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         topupButton.layer.cornerRadius = topupButton.bounds.size.width / 2
         topupButton.clipsToBounds = true
 
-        ///  Download data from network JSON file
+/// Download data from network JSON file
         let objectNetworkCall: NetworkCall = NetworkCall()
         objectNetworkCall.downloadJson()
 
@@ -144,59 +122,24 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    
-    
     func loadData(){
-        print("Loading data")
-        self.ref = Database.database().reference()
-        guard let username = Auth.auth().currentUser?.email else { return }
-        let userID = Auth.auth().currentUser?.uid
+        _username.text = firebaseService.getUserName()
+        firebaseService.getDeposite(){
+            deposit in
+            self._deposit.text = String(deposit)
+        }
         
-        _username.text = username
-        ref.child("users").child(userID!).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let deposit = snapshot.value as? Int {
-                self._deposit.text = "\(deposit)"
-            }
-        })
-        //load table now
-        ref.child("transaction").observe(DataEventType.value, with: { (snapshot) in
+        //clearing the list
+        self.tranList.removeAll()
+
+        firebaseService.getTransactionRecords() {
+            records in
+            self.tranList = records
             
-            //if the reference have some values
-            if snapshot.childrenCount > 0 {
-                print("children count is: \(snapshot.childrenCount)")
-                
-                //clearing the list
-                self.tranList.removeAll()
-                
-                //iterating through all the values
-                for transactions in snapshot.children.allObjects as! [DataSnapshot] {
-                    //getting values
-                    let tranObject = transactions.value as? [String: AnyObject]
-                    let tranDate  = tranObject?["time"]
-                    let tranAmount  = tranObject?["amount"]
-                    let tranTarget = tranObject?["payee_id"] as? String
-                    let tranFrom = tranObject?["payer_id"] as? String
-                    
-                    //appending it to list
-                    if (tranTarget == userID  || tranFrom == userID){
-                        //creating artist object with model and fetched values
-                        let transaction = TransactionModel(date: tranDate as? String, target: tranTarget, amount: tranAmount as? String)
-                        if(tranFrom == userID){
-                            transaction.amount = "-" + transaction.amount!
-                        }
-                        else{
-                            transaction.amount = "+" + transaction.amount!
-                        }
-                        self.tranList.append(transaction)
-                    }
-                }
-                
-                //reloading the tableview
-                self.tranList = self.tranList.reversed()
-                self.tableViewTransaction.reloadData()
-            }
-        })
-        print("Finish loading data")
+            //reloading the tableview
+            self.tranList = self.tranList.reversed()
+            self.tableViewTransaction.reloadData()
+        }
     }
 }
 

@@ -3,9 +3,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface NetworkCall : NSObject
 
-//@property (strong, nonatomic) id hi;
+@interface NetworkCall : NSObject
 
 - (void) downloadJson;
 
