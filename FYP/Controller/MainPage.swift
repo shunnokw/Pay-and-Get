@@ -54,14 +54,23 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         alert.addTextField(configurationHandler: {textField in textField.text = ""; textField.keyboardType = UIKeyboardType.decimalPad})
         alert.addAction(UIAlertAction(title: "Top-up", style: .default, handler: { action in
             let textField = alert.textFields![0]
+            
             guard let validInput = textField.text, !validInput.isEmpty else{
                 print("No value input")
+                AlertController.showAlert(self, title: "No value input", message: "Please try again")
                 return
             }
             guard validInput.isNumeric else{
                 print("Not Number")
+                AlertController.showAlert(self, title: "Only number is accepted", message: "Please try again")
                 return
             }
+            guard Int(validInput)! < 100000 else{
+                print("Max topup value is 100000")
+                AlertController.showAlert(self, title: "Max topup value is 100000", message: "Please try again")
+                return
+            }
+            
             topupValue = Int(validInput)!
             topupValue += Int(self._deposit.text!)!
             
