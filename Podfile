@@ -17,5 +17,10 @@ target 'FYP' do
   # Encryption Library
   pod 'SwiftyRSA'
 
+target 'FYPTests' do
+        inherit! :search_paths
+        pod 'Firebase'
+  end
+
 
 end

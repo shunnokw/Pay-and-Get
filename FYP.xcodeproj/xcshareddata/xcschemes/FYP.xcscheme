@@ -47,6 +47,16 @@
                ReferencedContainer = "container:FYP.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "57FFA70423E902D90002E1D2"
+               BuildableName = "FYPTests.xctest"
+               BlueprintName = "FYPTests"
+               ReferencedContainer = "container:FYP.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
