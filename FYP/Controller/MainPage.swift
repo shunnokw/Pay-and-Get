@@ -16,6 +16,7 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let firebaseService = FirebaseService()
     var tranList = [TransactionModel]()
     let cellSpacingHeight: CGFloat = 5
+    @IBOutlet weak var colorBGView: UIView!
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tranList.count
@@ -43,6 +44,8 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         cell.labelDate.text = transaction.date
         cell.labelAmount.text = transaction.amount
         cell.labelTarget.text = transaction.target
+        
+        cell.backgroundColor = UIColor.clear
         
         //returning cell
         return cell
@@ -103,7 +106,10 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
         loadData()
         topupButton.layer.cornerRadius = topupButton.bounds.size.width / 2
         topupButton.clipsToBounds = true
-
+        
+        tableViewTransaction.backgroundColor = UIColor.clear
+        colorBGView.layer.cornerRadius = 10
+        colorBGView.layer.masksToBounds = true
 /// Download data from network JSON file
         let objectNetworkCall: NetworkCall = NetworkCall()
         objectNetworkCall.downloadJson()
