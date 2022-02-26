@@ -9,8 +9,12 @@
 import Foundation
 import Firebase
 
-class FirebaseService: NSObject {
-    var ref: DatabaseReference!
+class FirebaseService {
+    var ref: DatabaseReference
+    
+    init() {
+        self.ref = Database.database().reference()
+    }
     
     func login(email: String, password: String, loginCompletion: @escaping(Bool)->()) {
         Auth.auth().signIn(withEmail: email, password: password, completion: {(user,error) in
@@ -25,7 +29,7 @@ class FirebaseService: NSObject {
     
     func autoLogin(completion: @escaping(Bool)->()) {
         Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
+            if user != nil {
                 completion(true)
             } else {
                 // No user is signed in.
@@ -66,11 +70,10 @@ class FirebaseService: NSObject {
         return userID
     }
     
-    func getDeposite(completion: @escaping(Int)->()) {
-        self.ref = Database.database().reference()
+    func getDeposite(completion: @escaping(Decimal)->()) {
         ref.child("users").child(getUserId()).child("deposit").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let deposit = snapshot.value as? Int {
-                completion(deposit)
+            if let deposit = snapshot.value as? NSNumber {
+                completion(NSDecimalNumber(decimal: deposit.decimalValue) as Decimal)
             }
         })
     }
@@ -121,8 +124,8 @@ class FirebaseService: NSObject {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy.HH.mm.ss"
-                
-        let newTransactionRef = self.ref!
+        
+        let newTransactionRef = self.ref
             .child("transaction")
             .childByAutoId()
         let newTransactionID = newTransactionRef.key
@@ -133,7 +136,7 @@ class FirebaseService: NSObject {
             "payee_id": "Self top up" as NSString,
             "payer_id": "Self top up" as NSString,
             "time": formatter.string(from: date) as NSString
-            ] as [String : Any]
+        ] as [String : Any]
         newTransactionRef.setValue(newTransactionData)
     }
 }

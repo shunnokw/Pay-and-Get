@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+
+class LoginViewModel {
+    let usernameSubject = PublishSubject<String>()
+    let passwordSubject = PublishSubject<String>()
+    
+    func isValid () -> Observable<Bool> {
+        Observable.combineLatest(usernameSubject.asObserver(), passwordSubject.asObserver()).map {
+            username, password in
+            return username.count >= 8 && password.count >= 8
+        }.startWith(false)
+    }
+}
 
 class LoginPage: UIViewController {
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
-    @IBOutlet weak var loginCardView: UIView!
+    @IBOutlet weak var loginBtn: UIButton!
     
-    let firebaseService = FirebaseService()
+    private let firebaseService = FirebaseService()
+    private let loginViewModel = LoginViewModel()
+    private let bag = DisposeBag()
     
     @IBAction func didClickLogin(_ sender: Any) {
         guard let email = _email.text,
@@ -34,12 +50,17 @@ class LoginPage: UIViewController {
             }
         }
     }
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _email.rx.text.map { $0 ?? "" }.bind(to: loginViewModel.usernameSubject).disposed(by: bag)
+        _password.rx.text.map { $0 ?? "" }.bind(to: loginViewModel.passwordSubject).disposed(by: bag)
+        
+        loginViewModel.isValid().bind(to: loginBtn.rx.isEnabled).disposed(by: bag)
+        
+        loginViewModel.isValid().map{ $0 ? 1 : 0.1 }.bind(to: loginBtn.rx.alpha).disposed(by: bag)
+        
         firebaseService.autoLogin() {
             alreadyLogin in
             if alreadyLogin {

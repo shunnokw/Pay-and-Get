@@ -28,8 +28,6 @@
 		5775F1EB23B59F4C00B5CE60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775F1E723B59F4C00B5CE60 /* LaunchScreen.storyboard */; };
 		5775F1EC23B59F4C00B5CE60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775F1E923B59F4C00B5CE60 /* Main.storyboard */; };
 		5775F1F223B59F7300B5CE60 /* transactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */; };
-		5775F1F923B603F500B5CE60 /* NetworkCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775F1F823B603F500B5CE60 /* NetworkCall.m */; };
-		579B9FAD23BBB07600D53881 /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 579B9FAC23BBB07600D53881 /* Api.m */; };
 		57FFA71A23E909210002E1D2 /* FYPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FFA71923E909210002E1D2 /* FYPTests.swift */; };
 		B4D3D4157ACB7839F3D600F8 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AD72BD6A359B74F19D7D6F /* Pods_FYP.framework */; };
 		BCE4D22294D74D9CD26C11C1 /* Pods_FYPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69745C4DD05C9D0CFED2FDBF /* Pods_FYPTests.framework */; };
@@ -71,11 +69,6 @@
 		5775F1E823B59F4C00B5CE60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5775F1EA23B59F4C00B5CE60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactionDetail.swift; sourceTree = "<group>"; };
-		5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FYP-Bridging-Header.h"; sourceTree = "<group>"; };
-		5775F1F823B603F500B5CE60 /* NetworkCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCall.m; sourceTree = "<group>"; };
-		5775F1FA23B6042C00B5CE60 /* NetworkCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkCall.h; sourceTree = "<group>"; };
-		579B9FAB23BBB07600D53881 /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
-		579B9FAC23BBB07600D53881 /* Api.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
 		57FFA71723E909210002E1D2 /* FYPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FYPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FFA71923E909210002E1D2 /* FYPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPTests.swift; sourceTree = "<group>"; };
 		57FFA71B23E909210002E1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,7 +125,6 @@
 			children = (
 				5775F1D723B59F0700B5CE60 /* AppDelegate.swift */,
 				576BFA6A23E419F7006E62A1 /* Backend */,
-				5727D15F23BFA4260051EF04 /* Network */,
 				5775F1E623B59F4C00B5CE60 /* View */,
 				5775F1CD23B59F0700B5CE60 /* Controller */,
 				0F6A71AA2258763500C12308 /* Model */,
@@ -158,21 +150,10 @@
 		0F6A71AA2258763500C12308 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				579B9FAB23BBB07600D53881 /* Api.h */,
-				579B9FAC23BBB07600D53881 /* Api.m */,
 				0F6A71A822586E5000C12308 /* TransactionModel.swift */,
 				5775F1EF23B59F7300B5CE60 /* transactionDetail.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		5727D15F23BFA4260051EF04 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				5775F1F823B603F500B5CE60 /* NetworkCall.m */,
-				5775F1FA23B6042C00B5CE60 /* NetworkCall.h */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		576BFA6A23E419F7006E62A1 /* Backend */ = {
@@ -186,7 +167,6 @@
 		5775F1CD23B59F0700B5CE60 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5775F1F323B5F0A300B5CE60 /* FYP-Bridging-Header.h */,
 				5775F1D623B59F0700B5CE60 /* LoginPage.swift */,
 				5775F1D423B59F0700B5CE60 /* SignupPage.swift */,
 				5727D16023BFACF30051EF04 /* MainPage.swift */,
@@ -444,9 +424,7 @@
 				0F6A71A922586E5000C12308 /* TransactionModel.swift in Sources */,
 				5727D16123BFACF30051EF04 /* MainPage.swift in Sources */,
 				5775F1E523B59F0700B5CE60 /* QRcodeGenPage.swift in Sources */,
-				579B9FAD23BBB07600D53881 /* Api.m in Sources */,
 				0F450A8A21FC2ACC008C2406 /* FYP.xcdatamodeld in Sources */,
-				5775F1F923B603F500B5CE60 /* NetworkCall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +523,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 			};
 			name = Debug;
 		};
@@ -598,6 +577,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -611,22 +591,21 @@
 				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 5K2R6NQH72;
 				INFOPLIST_FILE = FYP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = HomePag;
-				SWIFT_OBJC_BRIDGING_HEADER = "FYP/Controller/FYP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -637,23 +616,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 5K2R6NQH72;
 				INFOPLIST_FILE = FYP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cityu.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = jw_pag_appStore;
-				SWIFT_OBJC_BRIDGING_HEADER = "FYP/Controller/FYP-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = HomePag;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

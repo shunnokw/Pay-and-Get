@@ -8,52 +8,69 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
-class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MainPageViewModel {
+    let firebaseService = FirebaseService()
+    
+    var usernameSubject = PublishSubject<String>()
+    var depositSubject = PublishSubject<Decimal>()
+    var tranList = PublishSubject<[TransactionModel]>()
+    
+    func getUserData() {
+        usernameSubject.onNext(firebaseService.getUserName())
+        
+        firebaseService.getDeposite(){
+            deposit in
+            self.depositSubject.onNext(deposit)
+        }
+        
+        firebaseService.getTransactionRecords() {
+            records in
+            self.tranList.onNext(records.reversed())
+        }
+    }
+}
+
+class location: UIViewController{
     @IBOutlet weak var _username: UILabel!
     @IBOutlet weak var _deposit: UILabel!
     @IBOutlet weak var tableViewTransaction: UITableView!
-    let firebaseService = FirebaseService()
-    var tranList = [TransactionModel]()
-    let cellSpacingHeight: CGFloat = 5
+    @IBOutlet weak var topupButton: UIButton!
     @IBOutlet weak var colorBGView: UIView!
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tranList.count
-    }
+    let firebaseService = FirebaseService()
+    let cellSpacingHeight: CGFloat = 5
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
+    private let vm = MainPageViewModel()
+    private let bag = DisposeBag()
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        //creating a cell using the custom class
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VCTableViewCell
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        let transaction: TransactionModel
+        vm.usernameSubject.bind(to: _username.rx.text).disposed(by: bag)
+        vm.depositSubject.map { "\($0)" }.bind(to: _deposit.rx.text).disposed(by: bag)
+        vm.tranList.bind(to: tableViewTransaction.rx.items(cellIdentifier: "cell", cellType: VCTableViewCell.self)) {
+            row, transaction, cell in
+            cell.labelDate.text = transaction.date
+            cell.labelAmount.text = transaction.amount
+            cell.labelTarget.text = transaction.target
+        }.disposed(by: bag)
         
-        transaction = tranList[indexPath.row]
+        vm.getUserData()
         
-        //adding values to labels
-        cell.labelDate.text = transaction.date
-        cell.labelAmount.text = transaction.amount
-        cell.labelTarget.text = transaction.target
+        topupButton.layer.cornerRadius = topupButton.bounds.size.width / 2
+        topupButton.clipsToBounds = true
         
-        cell.backgroundColor = UIColor.clear
-        
-        //returning cell
-        return cell
+        tableViewTransaction.backgroundColor = UIColor.clear
+        colorBGView.layer.cornerRadius = 10
+        colorBGView.layer.masksToBounds = true
     }
     
     @IBAction func topupTapped(_ sender: Any) {
         var topupValue = -1
-        let alert = UIAlertController(title: "Top-Up", message: "How much would you like to top-up?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Top-Up", message: "How much wo uld you like to top-up?", preferredStyle: .alert)
         alert.addTextField(configurationHandler: {textField in textField.text = ""; textField.keyboardType = UIKeyboardType.decimalPad})
         alert.addAction(UIAlertAction(title: "Top-up", style: .default, handler: { action in
             let textField = alert.textFields![0]
@@ -79,89 +96,21 @@ class location: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             self.firebaseService.topUp(topupValue: topupValue)
             
-            self.loadData()
+            self.vm.getUserData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-
-/// Stop using pull to refresh due to new UI design
-    
-//    lazy var refresher : UIRefreshControl = {
-//        let refreshControl = UIRefreshControl()
-//        refreshControl.tintColor = .gray
-//        refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh")
-//        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
-//        return refreshControl
-//    }()
-//
-    
-    @IBOutlet weak var topupButton: UIButton!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadData()
-        topupButton.layer.cornerRadius = topupButton.bounds.size.width / 2
-        topupButton.clipsToBounds = true
-        
-        tableViewTransaction.backgroundColor = UIColor.clear
-        colorBGView.layer.cornerRadius = 10
-        colorBGView.layer.masksToBounds = true
-/// Download data from network JSON file
-        let objectNetworkCall: NetworkCall = NetworkCall()
-        objectNetworkCall.downloadJson()
-
-//        if #available(iOS 10.0, *){
-//            scrollView.refreshControl = refresher
-//            refresher.bounds.origin.y -= 70
-//        } else{
-//            scrollView.addSubview(refresher)
-//            refresher.bounds.origin.y -= 70
-//        }
-    }
-
     @IBAction func refreshBtnOnClick(_ sender: Any) {
-        didPullToRefresh()
-    }
-    
-    @objc func didPullToRefresh() {
-        print("Refershing")
-        tableViewTransaction.isHidden = true
-        let deadline = DispatchTime.now() + .milliseconds(700)
-        DispatchQueue.main.asyncAfter(deadline: deadline){
-            self.loadData()
-            self.tableViewTransaction.isHidden = false
-        }
-    }
-    
-    func loadData(){
-        _username.text = firebaseService.getUserName()
-        firebaseService.getDeposite(){
-            deposit in
-            self._deposit.text = String(deposit)
-        }
-        
-        //clearing the list
-        self.tranList.removeAll()
-
-        firebaseService.getTransactionRecords() {
-            records in
-            self.tranList = records
-            
-            //reloading the tableview
-            self.tranList = self.tranList.reversed()
-            self.tableViewTransaction.reloadData()
-        }
+        vm.getUserData()
     }
 }
 
 extension String {
     var isNumeric: Bool {
-        guard self.characters.count > 0 else { return false }
+        guard self.count > 0 else { return false }
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-        return Set(self.characters).isSubset(of: nums)
+        return Set(self).isSubset(of: nums)
     }
 }

@@ -13,6 +13,8 @@ target 'FYP' do
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
   
   # Encryption Library
   pod 'SwiftyRSA'
