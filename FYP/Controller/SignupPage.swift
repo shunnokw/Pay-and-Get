@@ -7,17 +7,15 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseDatabase
-
 
 class SignUpVC: UIViewController {
 
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
     @IBOutlet weak var _bankAcc: UITextField!
-    var ref: DatabaseReference!
-
+    
+    let firebaseService = FirebaseService()
+    
     @IBAction func onSignUpTapped(_ sender: Any) {
         guard let email = _email.text,
             email != "",
@@ -27,19 +25,19 @@ class SignUpVC: UIViewController {
                 AlertController.showAlert(self, title: "Missing Info", message: "Please fill in all information")
                 return
         }
-        Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error) in
-            guard error == nil else{
-                AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
-                return
+        
+        firebaseService.signUp(email: email, password: password, bankAcc: _bankAcc.text!) {
+            signUpSuccess in
+            if (signUpSuccess) {
+                self.performSegue(withIdentifier: "signUpSegue", sender: nil)
+            } else {
+                print("SignUp Success")
             }
-            guard let user = user else { return }
-            print(user.user.email ?? "Missing Email")
-            print(user.user.uid)
-            
-            self.ref = Database.database().reference()
-            self.performSegue(withIdentifier: "signUpSegue", sender: nil)
-            self.ref.child("users").child(user.user.uid).setValue(["username": email,"deposit": 0, "bankAcc": Int(self._bankAcc.text!) ?? -1])
-        })
+        }
+    }
+    
+    override func viewDidLoad() {
+        self.hideKeyboardWhenTappedAround()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -7,11 +7,30 @@
 //
 
 import UIKit
-import Firebase
+import RxCocoa
+import RxSwift
+
+class LoginViewModel {
+    let usernameSubject = PublishSubject<String>()
+    let passwordSubject = PublishSubject<String>()
+    
+    func isValid () -> Observable<Bool> {
+        Observable.combineLatest(usernameSubject.asObserver(), passwordSubject.asObserver()).map {
+            username, password in
+            return username.count >= 8 && password.count >= 8
+        }.startWith(false)
+    }
+}
 
 class LoginPage: UIViewController {
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    
+    private let firebaseService = FirebaseService()
+    private let loginViewModel = LoginViewModel()
+    private let bag = DisposeBag()
+    
     @IBAction func didClickLogin(_ sender: Any) {
         guard let email = _email.text,
         email != "",
@@ -21,28 +40,31 @@ class LoginPage: UIViewController {
                 AlertController.showAlert(self, title: "Missing Info", message: "Please fill in all information")
                 return
         }
-        Auth.auth().signIn(withEmail: email, password: password, completion: {(user,error) in
-            guard error == nil else{
-                AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
-                return
+        
+        firebaseService.login(email: email, password: password) {
+            loginSuccess in
+            if loginSuccess {
+                self.performSegue(withIdentifier: "signInSegue", sender: nil)
+            } else {
+                print("Login failed")
             }
-            //guard let user = user else { return }
-            //print(user.user.email ?? "Missing Email")
-            
-            self.performSegue(withIdentifier: "signInSegue", sender: nil)
-        })
+        }
     }
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
+        
+        _email.rx.text.map { $0 ?? "" }.bind(to: loginViewModel.usernameSubject).disposed(by: bag)
+        _password.rx.text.map { $0 ?? "" }.bind(to: loginViewModel.passwordSubject).disposed(by: bag)
+        
+        loginViewModel.isValid().bind(to: loginBtn.rx.isEnabled).disposed(by: bag)
+        
+        loginViewModel.isValid().map{ $0 ? 1 : 0.1 }.bind(to: loginBtn.rx.alpha).disposed(by: bag)
+        
+        firebaseService.autoLogin() {
+            alreadyLogin in
+            if alreadyLogin {
                 self.performSegue(withIdentifier: "signInSegue", sender: nil)
-            } else {
-                // No user is signed in.
             }
         }
         self.hideKeyboardWhenTappedAround()
